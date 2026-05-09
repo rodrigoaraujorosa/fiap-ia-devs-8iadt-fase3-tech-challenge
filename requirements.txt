@@ -1,0 +1,21 @@
+# Modelo e Inferência
+transformers==4.46.3
+peft==0.13.2
+accelerate==1.1.1
+
+# LangChain e LangGraph
+langchain==0.3.7
+langchain-community==0.3.7
+langgraph==0.2.45
+langchain-huggingface==0.1.2
+
+# Embeddings e Vector Store
+sentence-transformers==3.3.1
+faiss-cpu==1.9.0
+
+# Utilitários
+python-dotenv==1.0.1
+
+# Testes
+pytest==8.3.3
+hypothesis==6.119.3

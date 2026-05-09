@@ -1,0 +1,1186 @@
+{
+  "version": "1.0",
+  "created_at": "2024-01-15T00:00:00Z",
+  "total_records": 20,
+  "source": "Dados fictícios gerados para fins acadêmicos. Nenhum dado real de paciente foi utilizado. Condições clínicas alinhadas semanticamente ao dataset ori_pqaa.json (211.269 registros médicos). Mapeamento de alinhamento: anemia (P001-anemia ferropriva, P011-anemia renal, P016-anemia aguda por HDA); hipertensão arterial sistêmica (P002, P003, P004, P006, P010, P011, P018, P020); diabetes mellitus (P002-DM2 descompensado HbA1c 9.8%, P011-DM2 com nefropatia terminal); dor torácica isquêmica (P004-IAMCSST, P018-crise hipertensiva, P020-angina estável DAC); dispneia (P001-dispneia por anemia, P003-IC descompensada, P004-IAM, P005-DPOC, P010-FA, P012-pneumonia, P013-asma); insuficiência cardíaca (P003); infarto agudo do miocárdio (P004); AVC isquêmico (P009); DPOC (P005); asma brônquica (P013); sepse (P008); pneumonia (P012); fibrilação atrial (P010); cirrose hepática (P006); hepatite C (P019); doença renal crônica (P011); hipertireoidismo/Graves (P007); pancreatite aguda (P014); epilepsia (P017); dislipidemia/DAC (P020).",
+  "prontuarios": [
+    {
+      "id": "P001",
+      "nome": "Ana Clara Ferreira",
+      "data_nascimento": "1975-03-15",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E001",
+          "nome": "Hemograma Completo",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "Hemoglobina: 9.2 g/dL (baixo). Hematócrito: 29% (baixo). VCM: 68 fL (microcítico). HCM: 20 pg (hipocrômico). RDW: 18% (aumentado). Leucócitos: 6.800/mm³ (normal). Plaquetas: 420.000/mm³ (trombocitose reacional).",
+          "observacoes_medico": "Anemia microcítica hipocrômica com trombocitose reacional, padrão clássico de anemia ferropriva. Solicitar ferritina, ferro sérico e capacidade total de ligação do ferro (CTLF). Iniciar reposição com sulfato ferroso. Investigar causa da deficiência: sangramento oculto vs. ingesta insuficiente."
+        },
+        {
+          "id": "E002",
+          "nome": "Ferritina Sérica e Ferro Sérico",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-14",
+          "status": "alterado",
+          "resultado": "Ferritina: 4 ng/mL (muito baixa; referência: 12-150 ng/mL). Ferro sérico: 28 mcg/dL (baixo; referência: 60-170 mcg/dL). CTLF: 480 mcg/dL (elevada; referência: 250-370 mcg/dL). Saturação de transferrina: 6% (muito baixa; referência: 20-50%).",
+          "observacoes_medico": "Perfil de ferro confirma anemia ferropriva grave com depleção dos estoques. Saturação de transferrina criticamente baixa. Avaliar sangramento gastrointestinal oculto com pesquisa de sangue oculto nas fezes. Considerar ferro endovenoso se não houver resposta ao ferro oral em 4 semanas."
+        },
+        {
+          "id": "E003",
+          "nome": "Eletrocardiograma",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "concluido",
+          "resultado": "Ritmo sinusal. FC 96 bpm. Eixo elétrico normal. Sem alterações isquêmicas. Sem sinais de sobrecarga ventricular.",
+          "observacoes_medico": "ECG dentro dos limites normais. Taquicardia sinusal leve compatível com anemia. Reavaliar após correção da hemoglobina."
+        },
+        {
+          "id": "E003B",
+          "nome": "Pesquisa de Sangue Oculto nas Fezes",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Investigar sangramento gastrointestinal oculto como causa da anemia ferropriva em mulher pré-menopáusica com dieta pobre em ferro."
+        }
+      ],
+      "diagnosticos": [
+        "Anemia ferropriva grave (Hb 9.2 g/dL)",
+        "Dispneia aos esforços por anemia",
+        "Deficiência de ferro com depleção dos estoques"
+      ],
+      "medicamentos_em_uso": [
+        "Sulfato ferroso 300mg 2x/dia (em jejum)",
+        "Ácido fólico 5mg/dia",
+        "Vitamina C 500mg/dia (potencializar absorção do ferro)"
+      ],
+      "observacoes_gerais": "Paciente de 48 anos relata fadiga intensa, dispneia aos esforços moderados, palpitações e palidez cutâneo-mucosa há 3 meses. Nega sangramento ativo ou menorragia. Dieta pobre em ferro relatada (vegetariana restrita). Ao exame: palidez conjuntival ++/4+, taquicardia sinusal, sopro sistólico funcional 2+/6+ em foco aórtico. Anemia ferropriva confirmada por perfil de ferro. Investigação de sangramento oculto em andamento.",
+      "ultima_atualizacao": "2024-01-14T14:30:00Z"
+    },
+    {
+      "id": "P002",
+      "nome": "Carlos Eduardo Mendes",
+      "data_nascimento": "1958-07-22",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E004",
+          "nome": "Glicemia de Jejum",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "Glicose: 214 mg/dL (hiperglicemia significativa). Valor de referência: 70-99 mg/dL.",
+          "observacoes_medico": "Hiperglicemia de jejum importante. Paciente relata poliúria, polidipsia e visão turva. Ajustar esquema insulínico. Reforçar orientações dietéticas e monitorização domiciliar da glicemia capilar."
+        },
+        {
+          "id": "E005",
+          "nome": "Hemoglobina Glicada (HbA1c)",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "HbA1c: 9.8% (controle glicêmico muito inadequado). Meta terapêutica individualizada: < 7.5% para paciente com comorbidades.",
+          "observacoes_medico": "HbA1c muito acima da meta. Controle glicêmico cronicamente inadequado nos últimos 3 meses. Intensificar esquema insulínico: considerar adição de insulina regular pré-prandial. Encaminhar para educação em diabetes."
+        },
+        {
+          "id": "E006",
+          "nome": "Creatinina Sérica e TFG",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "Creatinina: 1.5 mg/dL (elevada). Ureia: 52 mg/dL. TFG estimada (CKD-EPI): 54 mL/min/1.73m² (DRC estágio G3a). Microalbuminúria: 180 mg/g creatinina (macroalbuminúria).",
+          "observacoes_medico": "Nefropatia diabética estabelecida com DRC G3a e macroalbuminúria. Otimizar bloqueio do SRAA com losartana. Evitar AINEs e contrastes iodados. Monitorar progressão da DRC a cada 3 meses."
+        },
+        {
+          "id": "E007",
+          "nome": "Fundo de Olho (Retinografia)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "Retinopatia diabética não proliferativa moderada bilateral. Microaneurismas, exsudatos duros e hemorragias em chama de vela. Sem neovascularização.",
+          "observacoes_medico": "Retinopatia diabética não proliferativa moderada. Encaminhar para oftalmologia para avaliação de fotocoagulação a laser. Controle rigoroso da glicemia e pressão arterial para retardar progressão."
+        },
+        {
+          "id": "E007B",
+          "nome": "Pressão Arterial (MAPA 24h)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "PA média diurna: 148/92 mmHg. PA média noturna: 142/88 mmHg (padrão non-dipper). PA média 24h: 146/91 mmHg. Hipertensão arterial sistêmica não controlada.",
+          "observacoes_medico": "Hipertensão arterial sistêmica não controlada com padrão non-dipper, associado a maior risco cardiovascular e renal. Ajustar anti-hipertensivo. Meta pressórica para diabético com DRC: < 130/80 mmHg."
+        }
+      ],
+      "diagnosticos": [
+        "Diabetes mellitus tipo 2 descompensado (HbA1c 9.8%)",
+        "Nefropatia diabética (DRC estágio G3a, macroalbuminúria)",
+        "Retinopatia diabética não proliferativa moderada",
+        "Hipertensão arterial sistêmica não controlada"
+      ],
+      "medicamentos_em_uso": [
+        "Insulina NPH 40UI manhã / 20UI noite",
+        "Insulina regular 10UI pré-almoço",
+        "Metformina 850mg 2x/dia",
+        "Losartana 100mg/dia",
+        "Anlodipino 5mg/dia",
+        "Atorvastatina 40mg/dia"
+      ],
+      "observacoes_gerais": "Paciente de 65 anos, diabético tipo 2 há 12 anos, hipertenso há 8 anos. Adesão irregular ao tratamento e dieta. Relata poliúria, polidipsia, visão turva e noctúria. Complicações microvasculares estabelecidas: nefropatia e retinopatia diabéticas. Risco cardiovascular muito alto. Necessita intensificação do tratamento e acompanhamento multidisciplinar (endocrinologia, nefrologia, oftalmologia).",
+      "ultima_atualizacao": "2024-01-11T09:15:00Z"
+    },
+    {
+      "id": "P003",
+      "nome": "Mariana Souza Lima",
+      "data_nascimento": "1962-11-30",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E008",
+          "nome": "Ecocardiograma Transtorácico",
+          "data_solicitacao": "2024-01-05",
+          "data_resultado": "2024-01-08",
+          "status": "alterado",
+          "resultado": "FE: 35% (reduzida). Dilatação de VE (DDVE 68 mm). Disfunção sistólica moderada a grave. Regurgitação mitral moderada (área do orifício regurgitante 0.28 cm²). Pressão sistólica de artéria pulmonar estimada: 48 mmHg (hipertensão pulmonar leve).",
+          "observacoes_medico": "Insuficiência cardíaca com fração de ejeção reduzida (ICFEr) grave. Hipertensão pulmonar secundária à IC. Iniciar betabloqueador (carvedilol), IECA (enalapril), antagonista da aldosterona (espironolactona) e diurético (furosemida). Considerar dispositivo de ressincronização cardíaca se QRS > 150ms."
+        },
+        {
+          "id": "E009",
+          "nome": "BNP (Peptídeo Natriurético Tipo B)",
+          "data_solicitacao": "2024-01-05",
+          "data_resultado": "2024-01-06",
+          "status": "alterado",
+          "resultado": "BNP: 1.240 pg/mL (muito elevado). Valor de referência: < 100 pg/mL. NT-proBNP: 4.800 pg/mL.",
+          "observacoes_medico": "BNP e NT-proBNP muito elevados confirmam descompensação grave da insuficiência cardíaca. Monitorar BNP como marcador de resposta ao tratamento. Meta: redução > 30% do valor basal."
+        },
+        {
+          "id": "E010",
+          "nome": "Radiografia de Tórax",
+          "data_solicitacao": "2024-01-05",
+          "data_resultado": "2024-01-05",
+          "status": "alterado",
+          "resultado": "Cardiomegalia grau III (índice cardiotorácico 0.62). Congestão pulmonar bilateral com redistribuição vascular. Linhas B de Kerley. Derrame pleural bilateral moderado.",
+          "observacoes_medico": "Achados radiológicos compatíveis com insuficiência cardíaca descompensada grave. Congestão pulmonar e derrame pleural bilateral. Iniciar diurese agressiva com furosemida IV."
+        },
+        {
+          "id": "E011",
+          "nome": "Eletrólitos e Função Renal",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-06",
+          "status": "alterado",
+          "resultado": "Sódio: 132 mEq/L (hiponatremia leve). Potássio: 3.2 mEq/L (hipocalemia). Creatinina: 1.4 mg/dL. TFG: 48 mL/min/1.73m².",
+          "observacoes_medico": "Hiponatremia dilucional e hipocalemia por uso de diurético. Repor potássio. Restrição hídrica 1.5L/dia. Monitorar função renal durante diurese."
+        }
+      ],
+      "diagnosticos": [
+        "Insuficiência cardíaca com FE reduzida (ICFEr) - FE 35%",
+        "Hipertensão arterial sistêmica (causa provável da IC)",
+        "Hipertensão pulmonar secundária (leve)",
+        "Dispneia paroxística noturna e ortopneia",
+        "Edema de membros inferiores"
+      ],
+      "medicamentos_em_uso": [
+        "Carvedilol 6.25mg 2x/dia (titular progressivamente)",
+        "Enalapril 10mg 2x/dia",
+        "Furosemida 80mg IV 2x/dia (fase aguda)",
+        "Espironolactona 25mg/dia",
+        "Dapagliflozina 10mg/dia"
+      ],
+      "observacoes_gerais": "Paciente de 61 anos com dispneia progressiva em repouso, ortopneia (3 travesseiros), dispneia paroxística noturna e edema de MMII com cacifo +++/4+ há 2 semanas. Internação por descompensação de insuficiência cardíaca. Histórico de hipertensão arterial sistêmica não controlada há 20 anos como causa provável da cardiomiopatia dilatada. Classe funcional NYHA IV na admissão. Hipertensão pulmonar secundária identificada ao ecocardiograma.",
+      "ultima_atualizacao": "2024-01-08T16:45:00Z"
+    },
+    {
+      "id": "P004",
+      "nome": "Roberto Alves Nunes",
+      "data_nascimento": "1950-05-18",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E012",
+          "nome": "Troponina I de Alta Sensibilidade (série)",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-14",
+          "status": "alterado",
+          "resultado": "Troponina I (0h): 6.2 ng/mL. Troponina I (3h): 18.4 ng/mL (delta positivo). Valor de referência: < 0.04 ng/mL. CK-MB: 88 U/L (elevada). CK total: 1.240 U/L.",
+          "observacoes_medico": "Troponina I de alta sensibilidade com delta positivo confirma necrose miocárdica aguda. IAMCSST anterior extenso. Encaminhar para hemodinâmica imediatamente para angioplastia primária. Tempo porta-balão alvo: < 90 minutos."
+        },
+        {
+          "id": "E013",
+          "nome": "Eletrocardiograma de 12 Derivações (seriado)",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-14",
+          "status": "alterado",
+          "resultado": "Supradesnivelamento de ST em V1-V4 (3-4mm) e aVL. Imagem em espelho em derivações inferiores. Padrão de IAMCSST anterior extenso. Bloqueio de ramo esquerdo novo.",
+          "observacoes_medico": "ECG confirma IAMCSST anterior extenso com BRE novo (equivalente a supra de ST). Dor torácica intensa em aperto com irradiação para membro superior esquerdo e mandíbula. Encaminhar para hemodinâmica com máxima urgência."
+        },
+        {
+          "id": "E014",
+          "nome": "Cateterismo Cardíaco / Angioplastia Primária",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-14",
+          "status": "concluido",
+          "resultado": "Oclusão total da artéria descendente anterior proximal (DA proximal). Lesão de 70% em artéria circunflexa. Coronária direita sem lesões significativas. Angioplastia primária realizada com implante de stent farmacológico em DA proximal. Fluxo TIMI 3 restaurado.",
+          "observacoes_medico": "Angioplastia primária bem-sucedida com restauração do fluxo coronariano. Tempo porta-balão: 68 minutos. Lesão residual em CX: avaliar revascularização em segundo tempo. Iniciar dupla antiagregação plaquetária por 12 meses."
+        },
+        {
+          "id": "E015",
+          "nome": "Hemograma Completo",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-14",
+          "status": "concluido",
+          "resultado": "Leucócitos: 14.800/mm³ (leucocitose reacional). Hemoglobina: 13.2 g/dL. Hematócrito: 40%. Plaquetas: 198.000/mm³.",
+          "observacoes_medico": "Leucocitose reacional ao infarto agudo do miocárdio. Hemoglobina adequada. Monitorar hemograma durante anticoagulação."
+        }
+      ],
+      "diagnosticos": [
+        "Infarto agudo do miocárdio com supradesnivelamento de ST (IAMCSST) anterior extenso",
+        "Oclusão total de artéria descendente anterior proximal",
+        "Dor torácica isquêmica (angina instável evoluída para IAM)",
+        "Hipertensão arterial sistêmica",
+        "Tabagismo (fator de risco maior)"
+      ],
+      "medicamentos_em_uso": [
+        "AAS 300mg (dose de ataque) + 100mg/dia manutenção",
+        "Ticagrelor 180mg (dose de ataque) + 90mg 2x/dia manutenção",
+        "Heparina não fracionada IV (periprocedimento)",
+        "Atorvastatina 80mg/dia",
+        "Metoprolol 25mg 2x/dia",
+        "Ramipril 5mg/dia"
+      ],
+      "observacoes_gerais": "Paciente de 73 anos admitido com dor torácica intensa em aperto (EVA 9/10) irradiando para braço esquerdo e mandíbula há 2 horas, associada a diaforese profusa, náusea e dispneia. Tabagista há 30 anos (60 maços-ano). Hipertenso há 15 anos. Angioplastia primária realizada com sucesso. Internado em UTI coronariana para monitorização pós-IAM.",
+      "ultima_atualizacao": "2024-01-14T12:20:00Z"
+    },
+    {
+      "id": "P005",
+      "nome": "Fernanda Costa Ribeiro",
+      "data_nascimento": "1988-09-05",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E016",
+          "nome": "Espirometria com Prova Broncodilatadora",
+          "data_solicitacao": "2024-01-03",
+          "data_resultado": "2024-01-04",
+          "status": "alterado",
+          "resultado": "VEF1/CVF: 0.58 (obstrutivo). VEF1: 52% do previsto (moderado a grave). CVF: 78% do previsto. Resposta ao broncodilatador: +6% (não significativa, < 12%). Padrão obstrutivo fixo.",
+          "observacoes_medico": "Padrão obstrutivo moderado a grave sem reversibilidade significativa, compatível com DPOC. Estadio GOLD III. Exacerbação aguda em curso. Iniciar broncodilatadores de longa ação (LABA + LAMA) e corticosteroide inalatório."
+        },
+        {
+          "id": "E017",
+          "nome": "Gasometria Arterial",
+          "data_solicitacao": "2024-01-03",
+          "data_resultado": "2024-01-03",
+          "status": "alterado",
+          "resultado": "pH: 7.34 (acidose leve). PaO2: 58 mmHg (hipoxemia moderada). PaCO2: 52 mmHg (hipercapnia). SatO2: 89%. HCO3: 28 mEq/L (compensação metabólica). Insuficiência respiratória tipo II.",
+          "observacoes_medico": "Insuficiência respiratória hipoxêmica e hipercápnica (tipo II) em exacerbação de DPOC. Iniciar oxigenoterapia controlada (alvo SatO2 88-92%). Considerar VNI se não houver melhora. Monitorar gasometria seriada."
+        },
+        {
+          "id": "E018",
+          "nome": "Tomografia de Tórax de Alta Resolução",
+          "data_solicitacao": "2024-01-05",
+          "data_resultado": "2024-01-06",
+          "status": "concluido",
+          "resultado": "Enfisema centrolobular difuso bilateral, predominante em lobos superiores. Hiperinsuflação pulmonar. Espessamento de paredes brônquicas. Sem consolidações ou nódulos suspeitos. Sem derrame pleural.",
+          "observacoes_medico": "TCAR confirma enfisema centrolobular extenso compatível com DPOC grave. Sem evidência de neoplasia pulmonar. Hiperinsuflação significativa. Avaliar indicação de cirurgia de redução de volume pulmonar."
+        },
+        {
+          "id": "E018B",
+          "nome": "Teste de Caminhada de 6 Minutos (TC6M)",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-07",
+          "status": "alterado",
+          "resultado": "Distância percorrida: 280 metros (< 350m = prognóstico desfavorável). Dessaturação ao esforço: SatO2 mínima 82%. Dispneia intensa (Borg 7/10) ao final do teste.",
+          "observacoes_medico": "Capacidade funcional gravemente reduzida. Dessaturação significativa ao esforço. Indicação de oxigenoterapia domiciliar de longa duração (LTOT) se PaO2 < 55 mmHg em repouso ou < 60 mmHg com cor pulmonale."
+        }
+      ],
+      "diagnosticos": [
+        "Doença pulmonar obstrutiva crônica (DPOC) - GOLD III, grupo D",
+        "Exacerbação aguda de DPOC com insuficiência respiratória tipo II",
+        "Dispneia grave (MRC 4)",
+        "Hipoxemia moderada com hipercapnia",
+        "Tabagismo ativo (40 maços-ano)"
+      ],
+      "medicamentos_em_uso": [
+        "Tiotrópio 18mcg inalatório 1x/dia (LAMA)",
+        "Formoterol 12mcg inalatório 2x/dia (LABA)",
+        "Budesonida 400mcg inalatório 2x/dia (CI)",
+        "Prednisolona 40mg/dia por 5 dias (exacerbação)",
+        "Amoxicilina-clavulanato 875mg 12/12h (infecção bacteriana suspeita)",
+        "O2 controlado 1-2 L/min (alvo SatO2 88-92%)"
+      ],
+      "observacoes_gerais": "Paciente de 35 anos, tabagista há 20 anos (40 maços-ano). Dispneia progressiva aos esforços mínimos (MRC 4), tosse produtiva crônica com expectoração purulenta e sibilância. Internação por exacerbação aguda de DPOC com insuficiência respiratória tipo II. Gasometria com hipoxemia e hipercapnia. Reabilitação pulmonar indicada após estabilização.",
+      "ultima_atualizacao": "2024-01-07T11:00:00Z"
+    },
+    {
+      "id": "P006",
+      "nome": "José Antônio Pereira",
+      "data_nascimento": "1945-12-10",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E019",
+          "nome": "Ultrassonografia Abdominal",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-08",
+          "status": "alterado",
+          "resultado": "Fígado com ecotextura heterogênea, nodular. Esplenomegalia (baço 16 cm). Ascite moderada. Veia porta dilatada (14 mm).",
+          "observacoes_medico": "Achados compatíveis com cirrose hepática e hipertensão portal. Solicitar endoscopia digestiva alta."
+        },
+        {
+          "id": "E020",
+          "nome": "Bilirrubinas Totais e Frações",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-08",
+          "status": "alterado",
+          "resultado": "Bilirrubina total: 4.2 mg/dL. Bilirrubina direta: 2.8 mg/dL. Icterícia colestática.",
+          "observacoes_medico": "Icterícia por disfunção hepática. Monitorar coagulopatia."
+        },
+        {
+          "id": "E021",
+          "nome": "Endoscopia Digestiva Alta",
+          "data_solicitacao": "2024-01-09",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Rastreamento de varizes esofágicas. Risco de sangramento gastrointestinal."
+        },
+        {
+          "id": "E022",
+          "nome": "Alfa-fetoproteína (AFP)",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-09",
+          "status": "concluido",
+          "resultado": "AFP: 18 ng/mL (levemente elevada). Valor de referência: < 10 ng/mL.",
+          "observacoes_medico": "AFP discretamente elevada. Manter vigilância para hepatocarcinoma."
+        }
+      ],
+      "diagnosticos": [
+        "Cirrose hepática por hepatite C crônica",
+        "Hipertensão portal",
+        "Ascite moderada",
+        "Icterícia"
+      ],
+      "medicamentos_em_uso": [
+        "Espironolactona 100mg/dia",
+        "Furosemida 40mg/dia",
+        "Propranolol 40mg 2x/dia",
+        "Lactulose 30mL 3x/dia"
+      ],
+      "observacoes_gerais": "Paciente com hepatite C crônica há 15 anos, sem tratamento antiviral prévio. Aumento progressivo do abdome, icterícia e confusão mental leve. Etilismo social relatado.",
+      "ultima_atualizacao": "2024-01-09T13:20:00Z"
+    },
+    {
+      "id": "P007",
+      "nome": "Beatriz Helena Santos",
+      "data_nascimento": "1970-04-25",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E023",
+          "nome": "TSH (Hormônio Estimulante da Tireoide)",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "TSH: 0.01 mUI/L (suprimido). Valor de referência: 0.4-4.0 mUI/L.",
+          "observacoes_medico": "TSH suprimido confirma hipertireoidismo. Solicitar T3 livre, T4 livre e anticorpos anti-TSH (TRAb) para diferenciar Doença de Graves de nódulo autônomo. Diagnóstico diferencial com hipotireoidismo subclínico tratado em excesso."
+        },
+        {
+          "id": "E024",
+          "nome": "T4 Livre e T3 Livre",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "T4 livre: 4.2 ng/dL (muito elevado; referência: 0.8-1.8 ng/dL). T3 livre: 12.8 pg/mL (muito elevado; referência: 2.3-4.2 pg/mL). TRAb (anticorpo anti-receptor de TSH): 18.4 UI/L (positivo; referência: < 1.75 UI/L).",
+          "observacoes_medico": "T4 e T3 livres muito elevados com TRAb positivo confirmam Doença de Graves. Hipertireoidismo grave. Iniciar metimazol em dose alta. Betabloqueador para controle sintomático. Contraindicar iodo radioativo na fase aguda."
+        },
+        {
+          "id": "E025",
+          "nome": "Cintilografia de Tireoide com I-131",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-15",
+          "status": "concluido",
+          "resultado": "Captação difusamente aumentada e homogênea (captação de 24h: 68%; referência: 15-35%). Padrão compatível com Doença de Graves. Sem nódulos hipercaptantes.",
+          "observacoes_medico": "Cintilografia confirma Doença de Graves com hipercaptação difusa. Exclui nódulo autônomo. Após controle do hipertireoidismo com metimazol, discutir tratamento definitivo: iodo radioativo vs. tireoidectomia total."
+        },
+        {
+          "id": "E026",
+          "nome": "Eletrocardiograma",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "Taquicardia sinusal. FC 124 bpm. Intervalo PR curto. Sem alterações isquêmicas. Sem fibrilação atrial.",
+          "observacoes_medico": "Taquicardia sinusal intensa associada ao hipertireoidismo. Risco de fibrilação atrial. Iniciar propranolol para controle da frequência cardíaca. Monitorar ritmo cardíaco."
+        }
+      ],
+      "diagnosticos": [
+        "Hipertireoidismo por Doença de Graves (TRAb positivo)",
+        "Taquicardia sinusal por hipertireoidismo",
+        "Perda de peso involuntária (8 kg em 2 meses)",
+        "Exoftalmia bilateral (oftalmopatia de Graves)"
+      ],
+      "medicamentos_em_uso": [
+        "Metimazol 40mg/dia (dose de ataque)",
+        "Propranolol 40mg 3x/dia (controle sintomático)",
+        "Colírio lubrificante (proteção ocular)"
+      ],
+      "observacoes_gerais": "Paciente de 53 anos com palpitações, tremores finos de extremidades, sudorese excessiva, intolerância ao calor e perda de 8 kg em 2 meses. Exoftalmia bilateral discreta ao exame físico (oftalmopatia de Graves). Diagnóstico diferencial com hipotireoidismo subclínico excluído pelos níveis hormonais. Doença de Graves confirmada por TRAb positivo e cintilografia. Tratamento definitivo a ser discutido após controle clínico.",
+      "ultima_atualizacao": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": "P008",
+      "nome": "Paulo Henrique Oliveira",
+      "data_nascimento": "1965-08-14",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E027",
+          "nome": "Hemocultura (2 amostras)",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-15",
+          "status": "alterado",
+          "resultado": "Crescimento de Staphylococcus aureus sensível à oxacilina (MSSA) em ambas as amostras.",
+          "observacoes_medico": "Bacteremia por MSSA confirmada. Manter oxacilina IV. Investigar foco primário."
+        },
+        {
+          "id": "E028",
+          "nome": "Lactato Sérico",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-13",
+          "status": "alterado",
+          "resultado": "Lactato: 3.8 mmol/L (elevado). Valor de referência: < 2.0 mmol/L.",
+          "observacoes_medico": "Lactato elevado indica hipoperfusão tecidual. Sepse grave confirmada."
+        },
+        {
+          "id": "E029",
+          "nome": "Hemograma Completo",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-13",
+          "status": "alterado",
+          "resultado": "Leucócitos: 22.400/mm³ com desvio à esquerda. Bastões: 18%. Plaquetas: 89.000/mm³ (trombocitopenia).",
+          "observacoes_medico": "Leucocitose com desvio à esquerda e trombocitopenia. Padrão de sepse grave."
+        },
+        {
+          "id": "E030",
+          "nome": "Ecocardiograma Transesofágico",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Descartar endocardite infecciosa como foco da bacteremia."
+        }
+      ],
+      "diagnosticos": [
+        "Sepse grave por Staphylococcus aureus",
+        "Bacteremia primária",
+        "Trombocitopenia"
+      ],
+      "medicamentos_em_uso": [
+        "Oxacilina 2g IV 4/4h",
+        "Noradrenalina 0.1 mcg/kg/min IV",
+        "Heparina profilática 5000UI SC 12/12h"
+      ],
+      "observacoes_gerais": "Paciente admitido em UTI com febre alta (39.8°C), hipotensão (PA 80/50 mmHg) e alteração do nível de consciência. Critérios de sepse grave preenchidos. Foco infeccioso primário não identificado.",
+      "ultima_atualizacao": "2024-01-15T02:10:00Z"
+    },
+    {
+      "id": "P009",
+      "nome": "Luciana Martins Carvalho",
+      "data_nascimento": "1980-02-28",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E031",
+          "nome": "Tomografia Computadorizada de Crânio",
+          "data_solicitacao": "2024-01-09",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "Hipodensidade em território da artéria cerebral média esquerda. Área de infarto isquêmico agudo. Sem sangramento.",
+          "observacoes_medico": "AVC isquêmico agudo em ACM esquerda. Janela terapêutica para trombólise: 3h. Iniciar alteplase."
+        },
+        {
+          "id": "E032",
+          "nome": "Ressonância Magnética de Crânio",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "concluido",
+          "resultado": "Restrição à difusão em região frontoparietal esquerda (3.2 x 2.8 cm). Penumbra isquêmica presente.",
+          "observacoes_medico": "RM confirma extensão do infarto. Penumbra viável identificada."
+        },
+        {
+          "id": "E033",
+          "nome": "Ecocardiograma Transtorácico",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Investigar fonte cardioembólica do AVC."
+        },
+        {
+          "id": "E034",
+          "nome": "Holter 24 horas",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Rastrear fibrilação atrial paroxística como causa do AVC cardioembólico."
+        },
+        {
+          "id": "E034B",
+          "nome": "Angiografia por Ressonância Magnética (Angio-RM) Cervical",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": null,
+          "status": "cancelado",
+          "resultado": null,
+          "observacoes_medico": "Exame cancelado: paciente transferida para UTI neurológica antes da realização. Reavaliação da indicação após estabilização clínica. Substituído por Doppler de carótidas e vertebrais."
+        }
+      ],
+      "diagnosticos": [
+        "Acidente vascular cerebral isquêmico agudo (ACM esquerda)",
+        "Hemiplegia direita",
+        "Afasia de Broca"
+      ],
+      "medicamentos_em_uso": [
+        "AAS 100mg/dia",
+        "Clopidogrel 75mg/dia",
+        "Atorvastatina 80mg/dia",
+        "Enoxaparina 40mg SC/dia"
+      ],
+      "observacoes_gerais": "Paciente admitida com hemiplegia direita súbita e afasia. NIHSS: 14 pontos. Trombólise realizada dentro da janela terapêutica. Internada em unidade de AVC.",
+      "ultima_atualizacao": "2024-01-11T08:00:00Z"
+    },
+    {
+      "id": "P010",
+      "nome": "Marcos Vinícius Teixeira",
+      "data_nascimento": "1972-06-03",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E035",
+          "nome": "Eletrocardiograma",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-06",
+          "status": "alterado",
+          "resultado": "Fibrilação atrial com resposta ventricular rápida. FC média 138 bpm. Ausência de onda P. Intervalo RR irregular.",
+          "observacoes_medico": "FA com RVR. Controle de frequência urgente. Anticoagulação indicada."
+        },
+        {
+          "id": "E036",
+          "nome": "Ecocardiograma Transtorácico",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-07",
+          "status": "concluido",
+          "resultado": "FE: 55% (preservada). Átrio esquerdo dilatado (48 mm). Sem trombo intracavitário.",
+          "observacoes_medico": "FA com FE preservada. Átrio esquerdo dilatado favorece manutenção da FA."
+        },
+        {
+          "id": "E037",
+          "nome": "TSH",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-07",
+          "status": "concluido",
+          "resultado": "TSH: 1.8 mUI/L (normal). T4 livre: 1.1 ng/dL (normal).",
+          "observacoes_medico": "Tireoide sem alterações. FA não relacionada a hipertireoidismo."
+        },
+        {
+          "id": "E038",
+          "nome": "Score CHA2DS2-VASc",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-07",
+          "status": "concluido",
+          "resultado": "Score CHA2DS2-VASc: 3 pontos (hipertensão + idade 65-74 + sexo masculino). Risco alto de AVC.",
+          "observacoes_medico": "Anticoagulação oral de longa duração indicada."
+        }
+      ],
+      "diagnosticos": [
+        "Fibrilação atrial persistente com resposta ventricular rápida",
+        "Hipertensão arterial sistêmica",
+        "Risco tromboembólico alto (CHA2DS2-VASc 3)"
+      ],
+      "medicamentos_em_uso": [
+        "Amiodarona 200mg/dia",
+        "Rivaroxabana 20mg/dia",
+        "Metoprolol 50mg 2x/dia",
+        "Losartana 100mg/dia"
+      ],
+      "observacoes_gerais": "Paciente com palpitações e dispneia há 5 dias. Hipertenso há 10 anos. Primeira detecção de FA. Cardioversão elétrica programada após anticoagulação adequada.",
+      "ultima_atualizacao": "2024-01-08T15:30:00Z"
+    },
+    {
+      "id": "P011",
+      "nome": "Sandra Regina Gomes",
+      "data_nascimento": "1955-01-19",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E039",
+          "nome": "Creatinina, Ureia e TFG",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Creatinina: 6.2 mg/dL (muito elevada; referência: 0.5-1.1 mg/dL). Ureia: 168 mg/dL (muito elevada; referência: 15-45 mg/dL). TFG (CKD-EPI): 7 mL/min/1.73m² (DRC estágio G5 - uremia terminal). Ácido úrico: 9.8 mg/dL.",
+          "observacoes_medico": "Insuficiência renal terminal com uremia. Indicação absoluta de terapia renal substitutiva (hemodiálise ou diálise peritoneal). Encaminhar para nefrologia com urgência. Síndrome urêmica: náusea, vômito, prurido e encefalopatia urêmica leve."
+        },
+        {
+          "id": "E040",
+          "nome": "Eletrólitos e Gasometria Venosa",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Potássio: 6.8 mEq/L (hipercalemia grave; referência: 3.5-5.0 mEq/L). Sódio: 128 mEq/L (hiponatremia). Bicarbonato: 14 mEq/L (acidose metabólica). pH venoso: 7.28. Fósforo: 7.2 mg/dL (hiperfosfatemia).",
+          "observacoes_medico": "Hipercalemia grave com risco iminente de arritmia fatal. Gluconato de cálcio IV imediato para estabilização de membrana. Bicarbonato IV para acidose. Resina de troca iônica para hipercalemia. Diálise de urgência indicada."
+        },
+        {
+          "id": "E041",
+          "nome": "Ultrassonografia Renal",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "concluido",
+          "resultado": "Rins reduzidos bilateralmente (direito 7.8 cm, esquerdo 7.6 cm; referência: 10-12 cm). Ecogenicidade aumentada difusamente. Córtex renal adelgaçado. Sem hidronefrose ou litíase.",
+          "observacoes_medico": "Rins de aspecto crônico com redução do parênquima renal. Confirma DRC avançada de longa data. Etiologia: nefropatia diabética e hipertensiva."
+        },
+        {
+          "id": "E042",
+          "nome": "Hemograma e Perfil de Ferro",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "Hemoglobina: 8.4 g/dL (anemia normocítica normocrômica). VCM: 88 fL. Ferritina: 320 ng/mL. Saturação de transferrina: 18%. Eritropoetina endógena: 4.2 mUI/mL (inadequadamente baixa para o grau de anemia).",
+          "observacoes_medico": "Anemia da doença renal crônica (anemia renal) por deficiência relativa de eritropoetina. Ferritina adequada, mas saturação de transferrina limítrofe. Manter eritropoetina recombinante. Monitorar resposta ao tratamento."
+        }
+      ],
+      "diagnosticos": [
+        "Doença renal crônica estágio G5 (uremia terminal) por nefropatia diabética e hipertensiva",
+        "Hipercalemia grave (K 6.8 mEq/L)",
+        "Acidose metabólica urêmica",
+        "Anemia da doença renal crônica (Hb 8.4 g/dL)",
+        "Diabetes mellitus tipo 2 (complicação: nefropatia)",
+        "Hipertensão arterial sistêmica grave"
+      ],
+      "medicamentos_em_uso": [
+        "Gluconato de cálcio 10% IV (emergência hipercalemia)",
+        "Bicarbonato de sódio 8.4% IV (acidose)",
+        "Resina de troca iônica (Sevelamer) 800mg 3x/dia",
+        "Eritropoetina alfa 4000UI SC 3x/semana",
+        "Insulina NPH 20UI manhã / 10UI noite",
+        "Anlodipino 10mg/dia + Furosemida 80mg/dia"
+      ],
+      "observacoes_gerais": "Paciente de 69 anos, diabética tipo 2 há 20 anos e hipertensa há 18 anos, com controle inadequado de ambas as condições. Evolução para DRC terminal por nefropatia diabética e hipertensiva. Oligúria há 5 dias (diurese < 200 mL/24h). Edema anasarca. Síndrome urêmica com náusea, vômito e confusão mental leve. Anemia renal associada. Indicação de início imediato de hemodiálise.",
+      "ultima_atualizacao": "2024-01-12T07:45:00Z"
+    },
+    {
+      "id": "P012",
+      "nome": "Antônio Carlos Barbosa",
+      "data_nascimento": "1968-10-07",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E043",
+          "nome": "Radiografia de Tórax",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "Consolidação em lobo inferior direito com broncograma aéreo. Derrame pleural direito discreto.",
+          "observacoes_medico": "Pneumonia lobar direita. Iniciar antibioticoterapia empírica."
+        },
+        {
+          "id": "E044",
+          "nome": "Proteína C-Reativa (PCR)",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "PCR: 18.4 mg/dL (muito elevada). Valor de referência: < 0.5 mg/dL.",
+          "observacoes_medico": "PCR muito elevada confirma processo infeccioso grave."
+        },
+        {
+          "id": "E045",
+          "nome": "Hemocultura",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Aguardando resultado para ajuste de antibiótico conforme antibiograma."
+        },
+        {
+          "id": "E046",
+          "nome": "Oximetria de Pulso",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "SatO2: 89% em ar ambiente. Necessita suplementação de O2.",
+          "observacoes_medico": "Hipoxemia moderada. Iniciar O2 por cateter nasal 3L/min."
+        }
+      ],
+      "diagnosticos": [
+        "Pneumonia adquirida na comunidade (PAC) grave",
+        "Hipoxemia moderada",
+        "Derrame pleural parapneumônico"
+      ],
+      "medicamentos_em_uso": [
+        "Amoxicilina-clavulanato 875mg 12/12h",
+        "Azitromicina 500mg/dia",
+        "Paracetamol 750mg 6/6h",
+        "O2 suplementar 3L/min"
+      ],
+      "observacoes_gerais": "Paciente com febre (38.9°C), tosse produtiva com expectoração purulenta e dispneia há 4 dias. PSI score: classe IV. Internação indicada.",
+      "ultima_atualizacao": "2024-01-13T09:00:00Z"
+    },
+    {
+      "id": "P013",
+      "nome": "Patrícia Almeida Rocha",
+      "data_nascimento": "1990-07-11",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E047",
+          "nome": "Peak Flow (Pico de Fluxo Expiratório) Seriado",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-08",
+          "status": "alterado",
+          "resultado": "PFE pré-broncodilatador: 195 L/min (48% do previsto para sexo/idade/altura). PFE pós-broncodilatador (20 min): 295 L/min (+51%, reversibilidade significativa). Variabilidade diurna do PFE: 28% (> 20% = asma instável).",
+          "observacoes_medico": "Crise asmática moderada a grave com reversibilidade significativa ao broncodilatador. Variabilidade diurna elevada indica asma mal controlada. Intensificar tratamento de manutenção. Investigar alérgenos desencadeantes."
+        },
+        {
+          "id": "E048",
+          "nome": "Gasometria Arterial",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-08",
+          "status": "alterado",
+          "resultado": "pH: 7.44. PaO2: 76 mmHg (hipoxemia leve). PaCO2: 32 mmHg (hipocapnia por hiperventilação). SatO2: 95%. Alcalose respiratória leve.",
+          "observacoes_medico": "Hipoxemia leve com hipocapnia por hiperventilação compensatória, padrão típico de crise asmática moderada. Monitorar: normalização da PaCO2 pode indicar fadiga muscular e iminência de insuficiência respiratória."
+        },
+        {
+          "id": "E049",
+          "nome": "IgE Total e Painel de Alérgenos Específicos",
+          "data_solicitacao": "2024-01-09",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "IgE total: 680 UI/mL (muito elevada; referência: < 100 UI/mL). IgE específica: Dermatophagoides pteronyssinus 4+ (muito alta). Alternaria alternata 3+ (alta). Baratas 2+ (moderada). Epitélio de gato 1+ (leve).",
+          "observacoes_medico": "IgE total muito elevada com sensibilização a múltiplos alérgenos. Ácaros e fungos como principais desencadeantes. Indicar imunoterapia alérgeno-específica (ITAE) para ácaros. Orientar controle ambiental rigoroso."
+        },
+        {
+          "id": "E049B",
+          "nome": "Espirometria com Prova Broncodilatadora",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "concluido",
+          "resultado": "VEF1/CVF: 0.72 (pós-crise). VEF1: 74% do previsto. Resposta ao broncodilatador: +18% (significativa). Padrão obstrutivo reversível compatível com asma.",
+          "observacoes_medico": "Espirometria pós-crise confirma obstrução reversível. Asma brônquica persistente moderada. Escalonamento do tratamento indicado: adicionar LABA ao corticosteroide inalatório."
+        }
+      ],
+      "diagnosticos": [
+        "Asma brônquica persistente moderada (GINA step 3)",
+        "Crise asmática moderada a grave",
+        "Rinite alérgica persistente moderada-grave",
+        "Sensibilização a ácaros e fungos (IgE específica positiva)",
+        "Dispneia por broncoespasmo"
+      ],
+      "medicamentos_em_uso": [
+        "Budesonida 400mcg inalatório 2x/dia (CI)",
+        "Formoterol 12mcg inalatório 2x/dia (LABA)",
+        "Salbutamol 100mcg inalatório (resgate, máx 4x/dia)",
+        "Montelucaste 10mg/dia",
+        "Prednisolona 40mg/dia por 5 dias (crise)",
+        "Loratadina 10mg/dia (rinite)"
+      ],
+      "observacoes_gerais": "Paciente de 33 anos, asmática desde a infância. Crise desencadeada por exposição a mofo em residência com infiltração de umidade. Dispneia com sibilância, tosse seca e aperto torácico. Nega tabagismo. Rinite alérgica associada. IgE muito elevada com sensibilização a múltiplos alérgenos. Imunoterapia alérgeno-específica indicada após controle da crise.",
+      "ultima_atualizacao": "2024-01-11T16:20:00Z"
+    },
+    {
+      "id": "P014",
+      "nome": "Ricardo Ferreira Dias",
+      "data_nascimento": "1978-03-22",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E050",
+          "nome": "Lipase Sérica",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-11",
+          "status": "alterado",
+          "resultado": "Lipase: 1.840 U/L (muito elevada). Valor de referência: 13-60 U/L.",
+          "observacoes_medico": "Lipase > 3x o limite superior. Pancreatite aguda confirmada."
+        },
+        {
+          "id": "E051",
+          "nome": "Tomografia de Abdome com Contraste",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "Pâncreas com edema difuso e necrose de 30% do parênquima. Coleção peripancreática. Score de Balthazar: D.",
+          "observacoes_medico": "Pancreatite aguda moderadamente grave com necrose. UTI indicada."
+        },
+        {
+          "id": "E052",
+          "nome": "Ultrassonografia de Abdome",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-11",
+          "status": "concluido",
+          "resultado": "Vesícula biliar com múltiplos cálculos (maior 1.8 cm). Colédoco não dilatado. Pâncreas com edema.",
+          "observacoes_medico": "Litíase biliar como etiologia provável da pancreatite."
+        },
+        {
+          "id": "E053",
+          "nome": "Colangiopancreatografia por RM (CPRM)",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Avaliar coledocolitíase associada."
+        }
+      ],
+      "diagnosticos": [
+        "Pancreatite aguda moderadamente grave (necrosante)",
+        "Litíase biliar",
+        "Dor abdominal intensa"
+      ],
+      "medicamentos_em_uso": [
+        "Morfina 4mg IV 4/4h (analgesia)",
+        "Omeprazol 40mg IV/dia",
+        "Metronidazol 500mg IV 8/8h",
+        "Nutrição enteral via SNE"
+      ],
+      "observacoes_gerais": "Paciente com dor epigástrica intensa irradiando para dorso, vômitos incoercíveis e febre há 2 dias. Etilismo pesado (> 80g/dia). Internado em UTI.",
+      "ultima_atualizacao": "2024-01-13T14:00:00Z"
+    },
+    {
+      "id": "P015",
+      "nome": "Camila Nascimento Freitas",
+      "data_nascimento": "1995-12-01",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E054",
+          "nome": "Urocultura",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "Crescimento de Escherichia coli > 100.000 UFC/mL. Sensível a ciprofloxacino e nitrofurantoína.",
+          "observacoes_medico": "ITU por E. coli confirmada. Ajustar antibiótico conforme antibiograma."
+        },
+        {
+          "id": "E055",
+          "nome": "Exame de Urina Tipo I (EAS)",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-07",
+          "status": "alterado",
+          "resultado": "Leucocitúria: 80 leucócitos/campo. Hematúria: 15 hemácias/campo. Nitrito positivo. Bacteriúria.",
+          "observacoes_medico": "EAS compatível com infecção urinária. Iniciar antibiótico empírico."
+        },
+        {
+          "id": "E056",
+          "nome": "Ultrassonografia Renal e de Vias Urinárias",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": null,
+          "status": "pendente",
+          "resultado": null,
+          "observacoes_medico": "Descartar pielonefrite complicada ou abscesso renal."
+        }
+      ],
+      "diagnosticos": [
+        "Infecção do trato urinário (ITU) complicada",
+        "Pielonefrite aguda suspeita",
+        "Hematúria"
+      ],
+      "medicamentos_em_uso": [
+        "Ciprofloxacino 500mg 12/12h por 7 dias",
+        "Dipirona 1g 6/6h (analgesia)",
+        "Hidratação oral 2L/dia"
+      ],
+      "observacoes_gerais": "Paciente com disúria, polaciúria, dor lombar bilateral e febre (38.5°C) há 3 dias. Terceira ITU no último ano. Investigar fatores predisponentes.",
+      "ultima_atualizacao": "2024-01-09T11:30:00Z"
+    },
+    {
+      "id": "P016",
+      "nome": "Eduardo Lima Pinto",
+      "data_nascimento": "1960-09-17",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E057",
+          "nome": "Endoscopia Digestiva Alta",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Úlcera gástrica em antro (1.8 cm), com vaso visível e sangramento ativo em jato (Forrest Ia). Mucosa gástrica com gastrite erosiva difusa. Varizes esofágicas ausentes. Hemostasia endoscópica realizada com injeção de adrenalina + coagulação com plasma de argônio.",
+          "observacoes_medico": "Úlcera péptica com sangramento ativo de alto risco (Forrest Ia). Hemostasia endoscópica realizada com sucesso. Risco de ressangramento: 20-30% nas primeiras 72h. Manter IBP em infusão contínua. Controle endoscópico em 72h."
+        },
+        {
+          "id": "E058",
+          "nome": "Hemograma Completo (seriado)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Hemoglobina: 6.8 g/dL (anemia aguda grave). Hematócrito: 21%. VCM: 84 fL (normocítico). Leucócitos: 11.200/mm³. Plaquetas: 210.000/mm³. Reticulócitos: 1.2% (resposta medular ainda não estabelecida).",
+          "observacoes_medico": "Anemia aguda grave por hemorragia digestiva alta. Hemoglobina criticamente baixa. Transfusão de 2-3 concentrados de hemácias indicada (meta Hb > 8 g/dL). Monitorar hemograma a cada 6h nas primeiras 24h."
+        },
+        {
+          "id": "E059",
+          "nome": "Teste Rápido para H. pylori (urease)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "concluido",
+          "resultado": "Positivo para Helicobacter pylori (urease rápida).",
+          "observacoes_medico": "H. pylori positivo como fator etiológico da úlcera péptica. Iniciar terapia de erradicação após estabilização hemodinâmica: amoxicilina + claritromicina + IBP por 14 dias. Confirmar erradicação com teste respiratório 4-6 semanas após tratamento."
+        },
+        {
+          "id": "E060",
+          "nome": "Controle Endoscópico (72h)",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-13",
+          "status": "concluido",
+          "resultado": "Úlcera gástrica com base fibrinosa limpa (Forrest IIb). Sem sinais de ressangramento ativo. Mucosa periulcerosa com edema residual.",
+          "observacoes_medico": "Evolução favorável. Úlcera com base fibrinosa sem ressangramento. Transição para IBP oral. Manter dieta pastosa. Suspender AAS e AINEs definitivamente. Iniciar erradicação de H. pylori."
+        }
+      ],
+      "diagnosticos": [
+        "Hemorragia digestiva alta por úlcera péptica (Forrest Ia)",
+        "Anemia aguda grave por sangramento (Hb 6.8 g/dL)",
+        "Infecção por Helicobacter pylori",
+        "Gastrite erosiva difusa"
+      ],
+      "medicamentos_em_uso": [
+        "Omeprazol 80mg IV bolus + 8mg/h infusão contínua por 72h",
+        "Transfusão de concentrado de hemácias (3 unidades)",
+        "Amoxicilina 1g 12/12h + Claritromicina 500mg 12/12h + Omeprazol 20mg 12/12h por 14 dias (erradicação H. pylori)",
+        "Suspensão de AAS e ibuprofeno"
+      ],
+      "observacoes_gerais": "Paciente de 63 anos com hematêmese volumosa (estimativa 500 mL) e melena há 12 horas. Hipotensão postural (PA deitado 110/70, sentado 85/55 mmHg). Usuário crônico de AAS 100mg/dia e ibuprofeno 600mg 3x/dia por artrite reumatoide. Internado em UTI digestiva. Hemostasia endoscópica bem-sucedida. Anemia aguda grave requerendo transfusão.",
+      "ultima_atualizacao": "2024-01-13T06:30:00Z"
+    },
+    {
+      "id": "P017",
+      "nome": "Juliana Aparecida Moreira",
+      "data_nascimento": "1983-05-29",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E061",
+          "nome": "Eletroencefalograma (EEG)",
+          "data_solicitacao": "2024-01-09",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Atividade epileptiforme generalizada. Descargas de ponta-onda a 3 Hz durante vigília e sonolência. Compatível com epilepsia generalizada idiopática.",
+          "observacoes_medico": "EEG confirma epilepsia generalizada. Ajustar anticonvulsivante. Verificar nível sérico do valproato."
+        },
+        {
+          "id": "E062",
+          "nome": "Ressonância Magnética de Crânio",
+          "data_solicitacao": "2024-01-09",
+          "data_resultado": "2024-01-11",
+          "status": "concluido",
+          "resultado": "Sem lesões estruturais. Hipocampos simétricos e de volume normal. Sem sinais de esclerose mesial temporal. Sem malformações corticais.",
+          "observacoes_medico": "RM sem alterações estruturais. Epilepsia idiopática confirmada. Sem substrato lesional."
+        },
+        {
+          "id": "E063",
+          "nome": "Nível Sérico de Valproato e Lamotrigina",
+          "data_solicitacao": "2024-01-11",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "Ácido valproico: 38 mcg/mL (subterapêutico; alvo: 50-100 mcg/mL). Lamotrigina: 4.2 mcg/mL (dentro do alvo: 3-14 mcg/mL).",
+          "observacoes_medico": "Nível de valproato subterapêutico por irregularidade na tomada da medicação. Aumentar dose de valproato para 750mg 12/12h. Reforçar adesão ao tratamento."
+        },
+        {
+          "id": "E063B",
+          "nome": "Escala de Depressão de Beck (BDI-II) e Escala de Ansiedade de Hamilton (HAM-A)",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "alterado",
+          "resultado": "BDI-II: 24 pontos (depressão moderada; referência: 0-13 normal). HAM-A: 22 pontos (ansiedade moderada; referência: < 14 normal). PHQ-9: 16 pontos (depressão moderada a grave).",
+          "observacoes_medico": "Depressão moderada e ansiedade moderada identificadas. Comorbidades psiquiátricas frequentes em epilepsia (prevalência 30-50%). Encaminhar para psiquiatria. Considerar antidepressivo ISRS (sertralina) - menor risco de interação com anticonvulsivantes."
+        }
+      ],
+      "diagnosticos": [
+        "Epilepsia generalizada idiopática",
+        "Convulsão tônico-clônica generalizada por nível subterapêutico de valproato",
+        "Depressão moderada (BDI-II 24)",
+        "Transtorno de ansiedade generalizada (HAM-A 22)"
+      ],
+      "medicamentos_em_uso": [
+        "Ácido valproico 750mg 12/12h (dose ajustada)",
+        "Lamotrigina 100mg/dia",
+        "Diazepam 10mg IV (crise aguda)",
+        "Sertralina 50mg/dia (iniciada para depressão/ansiedade)"
+      ],
+      "observacoes_gerais": "Paciente de 40 anos com epilepsia generalizada idiopática diagnosticada há 5 anos. Admitida após convulsão tônico-clônica generalizada com duração de 3 minutos. Nível sérico de valproato subterapêutico por irregularidade na tomada da medicação. Avaliação psiquiátrica identificou depressão moderada e ansiedade generalizada como comorbidades, frequentes em pacientes com epilepsia. Encaminhada para acompanhamento em psiquiatria.",
+      "ultima_atualizacao": "2024-01-13T17:00:00Z"
+    },
+    {
+      "id": "P018",
+      "nome": "Henrique Souza Campos",
+      "data_nascimento": "1952-04-08",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E064",
+          "nome": "Pressão Arterial (monitorização seriada)",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-13",
+          "status": "alterado",
+          "resultado": "PA admissão: 218/136 mmHg. PA após 1h: 196/122 mmHg. PA após 2h: 178/110 mmHg. FC: 94 bpm. Sem déficit neurológico focal. Sem dor torácica.",
+          "observacoes_medico": "Crise hipertensiva urgência (sem lesão de órgão-alvo aguda). Redução gradual da PA com anti-hipertensivo oral: meta reduzir 25% nas primeiras 24h. Evitar redução abrupta (risco de isquemia cerebral)."
+        },
+        {
+          "id": "E065",
+          "nome": "Fundo de Olho (Oftalmoscopia Direta)",
+          "data_solicitacao": "2024-01-13",
+          "data_resultado": "2024-01-13",
+          "status": "alterado",
+          "resultado": "Retinopatia hipertensiva grau III (Keith-Wagener-Barker). Exsudatos duros em estrela macular. Hemorragias em chama de vela. Cruzamentos arteriovenosos patológicos. Artérias em fio de prata.",
+          "observacoes_medico": "Retinopatia hipertensiva grave grau III. Risco de perda visual por oclusão de artéria ou veia central da retina. Controle rigoroso e urgente da PA. Encaminhar para oftalmologia."
+        },
+        {
+          "id": "E066",
+          "nome": "Ecocardiograma com Doppler",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-15",
+          "status": "concluido",
+          "resultado": "Hipertrofia ventricular esquerda concêntrica (espessura do septo 14 mm, parede posterior 13 mm). FE: 62% (preservada). Disfunção diastólica grau II. Átrio esquerdo levemente dilatado (42 mm). Sem derrame pericárdico.",
+          "observacoes_medico": "Hipertrofia ventricular esquerda concêntrica com disfunção diastólica grau II, lesão de órgão-alvo crônica da hipertensão. Risco aumentado de insuficiência cardíaca com FE preservada. Otimizar tratamento anti-hipertensivo."
+        },
+        {
+          "id": "E067",
+          "nome": "Microalbuminúria e Creatinina Urinárias",
+          "data_solicitacao": "2024-01-14",
+          "data_resultado": "2024-01-15",
+          "status": "alterado",
+          "resultado": "Relação albumina/creatinina urinária: 280 mg/g (microalbuminúria; referência: < 30 mg/g). Creatinina sérica: 1.4 mg/dL. TFG: 56 mL/min/1.73m² (DRC G3a).",
+          "observacoes_medico": "Microalbuminúria e DRC G3a confirmam nefropatia hipertensiva. Iniciar IECA ou BRA para nefroproteção. Meta pressórica: < 130/80 mmHg."
+        }
+      ],
+      "diagnosticos": [
+        "Crise hipertensiva (urgência) - PA 218/136 mmHg",
+        "Hipertensão arterial sistêmica grave com lesões de órgão-alvo",
+        "Retinopatia hipertensiva grau III",
+        "Hipertrofia ventricular esquerda concêntrica com disfunção diastólica",
+        "Nefropatia hipertensiva (DRC G3a, microalbuminúria)"
+      ],
+      "medicamentos_em_uso": [
+        "Captopril 25mg SL (crise aguda)",
+        "Anlodipino 10mg/dia",
+        "Hidroclorotiazida 25mg/dia",
+        "Losartana 100mg/dia",
+        "Espironolactona 25mg/dia (adicionada por HVE)"
+      ],
+      "observacoes_gerais": "Paciente de 71 anos, hipertenso há 15 anos com adesão irregular ao tratamento. Admitido com cefaleia intensa occipital, visão turva e PA muito elevada. Múltiplas lesões de órgão-alvo crônicas: retinopatia grau III, hipertrofia ventricular esquerda e nefropatia hipertensiva. Nega dor torácica ou déficit neurológico (urgência, não emergência hipertensiva). Necessita otimização do esquema anti-hipertensivo e acompanhamento multidisciplinar.",
+      "ultima_atualizacao": "2024-01-15T10:15:00Z"
+    },
+    {
+      "id": "P019",
+      "nome": "Vanessa Cristina Borges",
+      "data_nascimento": "1987-08-16",
+      "sexo": "F",
+      "exames": [
+        {
+          "id": "E068",
+          "nome": "Anti-HCV e HCV RNA Qualitativo",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-07",
+          "status": "alterado",
+          "resultado": "Anti-HCV: Reagente (ELISA de 3ª geração). HCV RNA qualitativo: Detectável. Confirmação de hepatite C ativa.",
+          "observacoes_medico": "Hepatite C confirmada. Solicitar genotipagem, carga viral quantitativa e estadiamento de fibrose. Notificação compulsória realizada."
+        },
+        {
+          "id": "E069",
+          "nome": "HCV RNA Quantitativo e Genotipagem",
+          "data_solicitacao": "2024-01-07",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "HCV RNA: 3.200.000 UI/mL (carga viral alta). Genótipo 1b. Resistência a NS5A: ausente.",
+          "observacoes_medico": "Carga viral elevada. Genótipo 1b sem mutações de resistência. Indicação de antivirais de ação direta (AAD): sofosbuvir + velpatasvir por 12 semanas. Taxa de cura esperada > 95%."
+        },
+        {
+          "id": "E070",
+          "nome": "Elastografia Hepática (FibroScan)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-11",
+          "status": "concluido",
+          "resultado": "Rigidez hepática: 8.2 kPa (fibrose significativa F2-F3 pela escala METAVIR). Sem sinais de cirrose (< 12.5 kPa).",
+          "observacoes_medico": "Fibrose hepática significativa (F2-F3) sem cirrose. Tratamento com AAD indicado com urgência para evitar progressão para cirrose. Monitorar resposta virológica sustentada (RVS) 12 semanas após término do tratamento."
+        },
+        {
+          "id": "E071",
+          "nome": "TSH e T4 Livre (rastreamento)",
+          "data_solicitacao": "2024-01-06",
+          "data_resultado": "2024-01-07",
+          "status": "alterado",
+          "resultado": "TSH: 8.4 mUI/L (elevado; referência: 0.4-4.0 mUI/L). T4 livre: 0.7 ng/dL (baixo; referência: 0.8-1.8 ng/dL). Anti-TPO: 420 UI/mL (muito elevado; referência: < 35 UI/mL).",
+          "observacoes_medico": "Hipotireoidismo primário com anti-TPO muito elevado, compatível com tireoidite de Hashimoto. Associação conhecida entre hepatite C e doenças autoimunes tireoidianas. Iniciar levotiroxina 50mcg/dia. Monitorar TSH a cada 6-8 semanas até estabilização."
+        }
+      ],
+      "diagnosticos": [
+        "Hepatite C crônica (genótipo 1b, carga viral alta)",
+        "Fibrose hepática F2-F3 (elastografia 8.2 kPa)",
+        "Hipotireoidismo primário por tireoidite de Hashimoto (comorbidade autoimune associada ao HCV)"
+      ],
+      "medicamentos_em_uso": [
+        "Sofosbuvir 400mg + Velpatasvir 100mg/dia por 12 semanas (AAD)",
+        "Levotiroxina 50mcg/dia (hipotireoidismo)",
+        "Ácido ursodesoxicólico 300mg 2x/dia"
+      ],
+      "observacoes_gerais": "Paciente de 36 anos, diagnóstico incidental de hepatite C em doação de sangue. Assintomática para hepatopatia. Nega etilismo. Sem sinais de cirrose ao exame físico. Fibrose hepática significativa (F2-F3) ao FibroScan. Hipotireoidismo por tireoidite de Hashimoto identificado no rastreamento — associação autoimune frequente com hepatite C. Iniciando tratamento com antivirais de ação direta e levotiroxina.",
+      "ultima_atualizacao": "2024-01-12T14:00:00Z"
+    },
+    {
+      "id": "P020",
+      "nome": "Fábio Augusto Correia",
+      "data_nascimento": "1973-11-25",
+      "sexo": "M",
+      "exames": [
+        {
+          "id": "E072",
+          "nome": "Glicemia de Jejum e HbA1c",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-09",
+          "status": "concluido",
+          "resultado": "Glicose: 98 mg/dL (normal). HbA1c: 5.6% (normal). Valor de referência glicose: 70-99 mg/dL.",
+          "observacoes_medico": "Glicemia e HbA1c normais. Sem diabetes. Manter monitoramento anual dado o risco cardiovascular elevado."
+        },
+        {
+          "id": "E073",
+          "nome": "Perfil Lipídico Completo",
+          "data_solicitacao": "2024-01-08",
+          "data_resultado": "2024-01-09",
+          "status": "alterado",
+          "resultado": "Colesterol total: 278 mg/dL. LDL: 196 mg/dL (muito elevado; meta para DAC: < 70 mg/dL). HDL: 36 mg/dL (baixo). Triglicerídeos: 340 mg/dL (muito elevados). Não-HDL: 242 mg/dL.",
+          "observacoes_medico": "Dislipidemia mista grave com LDL muito acima da meta para paciente com doença arterial coronariana. Iniciar estatina de alta intensidade (rosuvastatina 40mg). Considerar ezetimiba se LDL não atingir meta em 3 meses. Orientar dieta hipocolesterolêmica e redução de carboidratos simples."
+        },
+        {
+          "id": "E074",
+          "nome": "Teste Ergométrico (Protocolo de Bruce)",
+          "data_solicitacao": "2024-01-10",
+          "data_resultado": "2024-01-10",
+          "status": "alterado",
+          "resultado": "Infradesnivelamento de ST de 2.5mm em V4-V6 na fase de esforço submáximo (estágio III). Angina típica durante o teste (dor torácica em aperto irradiando para braço esquerdo). Capacidade funcional: 7 METs. Teste positivo para isquemia miocárdica induzida por esforço.",
+          "observacoes_medico": "Teste ergométrico fortemente positivo para isquemia miocárdica. Angina de esforço típica com alterações eletrocardiográficas significativas. Cineangiocoronariografia indicada com urgência para definir anatomia coronariana e estratégia de revascularização."
+        },
+        {
+          "id": "E075",
+          "nome": "Cineangiocoronariografia",
+          "data_solicitacao": "2024-01-12",
+          "data_resultado": "2024-01-12",
+          "status": "concluido",
+          "resultado": "Lesão de 80% em artéria descendente anterior média (DA). Lesão de 65% em artéria circunflexa proximal (CX). Coronária direita sem lesões significativas. Função ventricular esquerda preservada (FE 58%).",
+          "observacoes_medico": "Doença arterial coronariana de 2 vasos (DA + CX). Lesão de DA com indicação de revascularização. Discutir em Heart Team: angioplastia com stent farmacológico vs. cirurgia de revascularização miocárdica (CABG). SYNTAX score: 18 (baixo-intermediário)."
+        }
+      ],
+      "diagnosticos": [
+        "Doença arterial coronariana de 2 vasos (DA 80% + CX 65%)",
+        "Angina estável de esforço (dor torácica isquêmica)",
+        "Dislipidemia mista grave (LDL 196 mg/dL)",
+        "Hipertensão arterial sistêmica",
+        "Síndrome coronariana crônica"
+      ],
+      "medicamentos_em_uso": [
+        "Rosuvastatina 40mg/dia",
+        "Ezetimiba 10mg/dia",
+        "AAS 100mg/dia",
+        "Metoprolol 50mg 2x/dia",
+        "Isossorbida mononitrato 20mg 3x/dia (antianginal)",
+        "Ramipril 10mg/dia"
+      ],
+      "observacoes_gerais": "Paciente de 50 anos com dor torácica em aperto aos esforços moderados há 4 meses (angina estável CCS II-III). Histórico familiar de infarto (pai faleceu aos 58 anos). Sedentário, dislipidêmico e hipertenso. Cineangiocoronariografia revelou DAC de 2 vasos. Aguardando decisão do Heart Team para revascularização.",
+      "ultima_atualizacao": "2024-01-13T16:45:00Z"
+    }
+  ]
+}

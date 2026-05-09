@@ -1,0 +1,61 @@
+# Kiro
+.Kiro/
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Modelos e pesos (arquivos grandes)
+# models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Logs
+logs/
+*.log
+
+# Dados sensíveis / brutos
+data/raw/
+data/preprocessed/
+dataset_summary.json
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Cobertura de testes
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Scripts
+scripts/
