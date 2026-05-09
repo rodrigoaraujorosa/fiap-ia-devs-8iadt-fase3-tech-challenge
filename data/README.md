@@ -11,7 +11,7 @@ data/
 ├── raw/
 │   └── ori_pqaa.json          # Dataset médico de perguntas e respostas (EN)
 ├── preprocessed/
-│   └── train_data.json        # Dados preprocessados e traduzidos (gerado pelo pipeline)
+│   └── train_data.json        # Dados preprocessados e traduzidos
 ├── medical_dict.json          # Dicionário de termos médicos EN→PT-BR
 ├── prontuarios.json           # Base de prontuários fictícios de pacientes
 └── README.md                  # Este arquivo
@@ -31,7 +31,7 @@ O arquivo `ori_pqaa.json` corresponde às **211.269 instâncias geradas artifici
 - **Repositório oficial**: [github.com/pubmedqa/pubmedqa](https://github.com/pubmedqa/pubmedqa)
 - **Formato**: JSON com objetos contendo os campos `QUESTION`, `LONG_ANSWER` e `CONTEXTS`
 - **Idioma original**: Inglês
-- **Uso neste projeto**: Entrada do pipeline de preprocessamento (`src/preprocessing/`), onde os campos `QUESTION` e `LONG_ANSWER` são extraídos, traduzidos para Português Brasileiro e formatados para fine-tuning da LLM
+- **Uso neste projeto**: Entrada do pipeline de preprocessamento, onde os campos `QUESTION` e `LONG_ANSWER` são extraídos, traduzidos para Português Brasileiro e formatados no padrão Alpaca para fine-tuning da LLM
 
 #### Citação
 
@@ -51,15 +51,16 @@ Se você utilizar este dataset em pesquisas ou trabalhos acadêmicos, cite o tra
 
 ### `preprocessed/train_data.json`
 
-Arquivo gerado automaticamente pelo módulo de preprocessamento (`src/preprocessing/preprocessor.py`). Contém os dados traduzidos para Português Brasileiro, anonimizados, deduplicados e formatados para fine-tuning.
+Arquivo gerado pelo notebook `01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb` no Google Colab. Contém os dados traduzidos para Português Brasileiro, deduplicados e formatados para fine-tuning no formato Alpaca.
 
 - **Formato**: JSON com array de objetos `{"instruction": "...", "input": "", "output": "..."}`
 - **Idioma**: Português Brasileiro
-- **Geração**: Executar o pipeline de preprocessamento no notebook `notebooks/fine_tuning_colab.ipynb`
+- **Geração**: Executar o notebook `notebooks/01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb` no Google Colab (ver seção Reprodutibilidade)
+- **Tempo de geração**: ~12 horas e 10 minutos em GPU T4
 
 ### `medical_dict.json`
 
-Dicionário de mapeamento de termos médicos do inglês para o Português Brasileiro, utilizado para corrigir traduções automáticas de terminologia clínica crítica após a tradução pelo modelo `Helsinki-NLP/opus-mt-en-ROMANCE`.
+Dicionário de mapeamento de termos médicos do inglês para o Português Brasileiro, utilizado para corrigir traduções automáticas de terminologia clínica crítica após a tradução pelo modelo `Helsinki-NLP/opus-mt-tc-big-en-pt`.
 
 - **Versão**: 1.0
 - **Total de termos**: 131 termos clínicos
@@ -146,19 +147,38 @@ Os registros foram gerados por Inteligência Artificial seguindo os critérios a
 
 ## Reprodutibilidade
 
-Para reproduzir o pipeline completo de preprocessamento e geração dos dados de treinamento:
+O preprocessamento foi executado integralmente no Google Colab via notebook, utilizando o Google Drive como armazenamento intermediário. Não há execução local desse pipeline.
 
-1. Certifique-se de que o arquivo `data/raw/ori_pqaa.json` está presente
-2. Ative o ambiente virtual: `source .venv/Scripts/activate`
-3. Execute o notebook `notebooks/fine_tuning_colab.ipynb` no Google Colab, ou execute localmente:
+### Pré-requisitos
 
-```bash
-python -m src.preprocessing.preprocessor \
-  --input data/raw/ori_pqaa.json \
-  --output data/preprocessed/
-```
+- Conta Google com Google Drive disponível
+- Sessão do Google Colab com GPU (T4 recomendada)
+- Arquivo `ori_pqaa.json` salvo no Google Drive em `MyDrive/fase3-data/raw/`
 
-O arquivo `data/preprocessed/train_data.json` será gerado automaticamente com o relatório de curadoria registrado em `logs/audit.log`.
+O dataset original pode ser obtido em: [github.com/pubmedqa/pubmedqa](https://github.com/pubmedqa/pubmedqa) (arquivo `ori_pqaa.json` do subconjunto PQA-A).
+
+### Passos
+
+1. Faça upload do arquivo `ori_pqaa.json` para o Google Drive no caminho:
+   ```
+   MyDrive/fase3-data/raw/ori_pqaa.json
+   ```
+
+2. Abra o notebook no Google Colab:
+   [`notebooks/01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb`](../notebooks/01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb)
+
+3. Selecione uma GPU em **Ambiente de execução → Alterar tipo de ambiente de execução → T4 GPU**
+
+4. Execute todas as células em ordem. O notebook irá:
+   - Montar o Google Drive automaticamente
+   - Carregar `ori_pqaa.json` de `MyDrive/fase3-data/raw/`
+   - Traduzir os 211.269 registros EN→PT-BR usando `Helsinki-NLP/opus-mt-tc-big-en-pt`
+   - Salvar checkpoints intermediários a cada 1.000 registros (permite retomada em caso de interrupção)
+   - Salvar o resultado final em `MyDrive/fase3-data/preprocessed/train_data.json`
+
+5. Ao final, copie o arquivo gerado para `data/preprocessed/train_data.json` no repositório local, se necessário.
+
+> **Tempo estimado**: ~12 horas em GPU T4. O notebook suporta retomada automática via checkpoint — se a sessão for interrompida, basta executar novamente que o progresso é preservado.
 
 ---
 

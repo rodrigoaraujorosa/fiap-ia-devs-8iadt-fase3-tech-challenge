@@ -35,8 +35,8 @@ logs/
 *.log
 
 # Dados sensíveis / brutos
-data/raw/
-data/preprocessed/
+ori_pqaa_reduce.json
+train_data_reduce.json
 dataset_summary.json
 
 # Variáveis de ambiente
