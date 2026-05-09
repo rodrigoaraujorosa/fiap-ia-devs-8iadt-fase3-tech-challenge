@@ -23,6 +23,7 @@ build/
 
 # Modelos e pesos (arquivos grandes)
 # models/
+*.zip
 *.bin
 *.safetensors
 *.pt
