@@ -48,7 +48,6 @@ Resposta + Fontes + Alertas Clínicos
 
 ```
 ├── data/
-│   ├── raw/                        # Dataset PubMedQA original (EN)
 │   ├── preprocessed/               # Dados traduzidos e formatados para treino
 │   ├── medical_dict.json           # Dicionário de termos médicos EN→PT-BR
 │   ├── prontuarios.json            # Base de prontuários fictícios (20 pacientes)
@@ -121,11 +120,27 @@ O projeto possui quatro notebooks, cada um com uma responsabilidade distinta:
 
 ### Executar o pipeline RAG no Colab
 
+#### Pré-requisito: conta e token no HuggingFace
+
+A seção 6 do notebook carrega o modelo `mistralai/Mistral-7B-Instruct-v0.2` diretamente do HuggingFace Hub, o que requer autenticação.
+
+1. Crie uma conta em [huggingface.co](https://huggingface.co) (gratuita)
+2. Gere um token de acesso em **Settings → Access Tokens → New token** (tipo: *Read*)
+3. No Google Colab, adicione o token como secret:
+   - Clique no ícone 🔑 **Secrets** no painel esquerdo
+   - Clique em **+ Add new secret**
+   - Nome: `HF_TOKEN` — Valor: seu token gerado
+   - Ative a opção **Notebook access**
+
+#### Passos de execução
+
 1. Abra o notebook `04.Pipeline_RAG_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb` no Google Colab
 2. Selecione uma GPU em **Ambiente de execução → Alterar tipo de ambiente de execução → T4 GPU**
-3. Na célula da seção 3, substitua `REPO_URL` pela URL deste repositório
-4. Execute todas as células em ordem — o Google Drive será montado automaticamente na seção 2 para persistir os logs de auditoria entre sessões
-5. A interface Gradio gerará uma URL pública válida por 72 horas
+3. Execute a **seção 3** (Instalar Dependências)
+4. **Reinicie a sessão**: Ambiente de execução → Reiniciar sessão
+5. Na célula da **seção 4**, substitua `REPO_URL` pela URL deste repositório
+6. Execute as demais células em ordem — o Google Drive será montado automaticamente na seção 2 para persistir os logs de auditoria entre sessões
+7. A interface Gradio gerará uma URL pública válida por 72 horas
 
 ---
 
