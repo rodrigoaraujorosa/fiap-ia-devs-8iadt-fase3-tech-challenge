@@ -1,0 +1,20 @@
+# Normaliza line endings: LF no repositório, conversão automática no checkout
+* text=auto
+
+# Força LF para arquivos que precisam rodar no Linux/Colab
+*.py    text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.txt   text eol=lf
+*.sh    text eol=lf
+*.ipynb text eol=lf
+
+# Arquivos binários — sem conversão
+*.zip   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.xlsx  binary
+*.pdf   binary
