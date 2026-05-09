@@ -8,46 +8,18 @@ Este diretório contém os dados utilizados no projeto do Assistente Virtual Mé
 
 ```
 data/
-├── raw/
-│   └── ori_pqaa.json          # Dataset médico de perguntas e respostas (EN)
 ├── preprocessed/
-│   └── train_data.json        # Dados preprocessados e traduzidos
+│   └── train_data.json        # Dados preprocessados e traduzidos (PT-BR, formato Alpaca)
 ├── medical_dict.json          # Dicionário de termos médicos EN→PT-BR
 ├── prontuarios.json           # Base de prontuários fictícios de pacientes
 └── README.md                  # Este arquivo
 ```
 
+> O dataset original `ori_pqaa.json` (509 MB) **não está incluído no repositório** por exceder o limite de tamanho do GitHub. Consulte a seção [Reprodutibilidade](#reprodutibilidade) para instruções de obtenção.
+
 ---
 
 ## Descrição dos Arquivos
-
-### `raw/ori_pqaa.json`
-
-Subconjunto do dataset **PubMedQA** — uma coleção de pares de perguntas e respostas biomédicas derivadas de abstracts do PubMed. O PubMedQA foi criado para a tarefa de resposta a perguntas de pesquisa com as opções *yes/no/maybe* (ex.: *"Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?"*) usando os abstracts correspondentes como contexto.
-
-O arquivo `ori_pqaa.json` corresponde às **211.269 instâncias geradas artificialmente** (subconjunto *PQA-A*, artificially generated) do dataset completo, que totaliza aproximadamente 273,5 mil instâncias entre exemplos rotulados por especialistas (1k), não rotulados (61,2k) e gerados artificialmente (211,3k).
-
-- **Fonte**: [PubMedQA — A Dataset for Biomedical Research Question Answering](https://pubmedqa.github.io/)
-- **Repositório oficial**: [github.com/pubmedqa/pubmedqa](https://github.com/pubmedqa/pubmedqa)
-- **Formato**: JSON com objetos contendo os campos `QUESTION`, `LONG_ANSWER` e `CONTEXTS`
-- **Idioma original**: Inglês
-- **Uso neste projeto**: Entrada do pipeline de preprocessamento, onde os campos `QUESTION` e `LONG_ANSWER` são extraídos, traduzidos para Português Brasileiro e formatados no padrão Alpaca para fine-tuning da LLM
-
-#### Citação
-
-Se você utilizar este dataset em pesquisas ou trabalhos acadêmicos, cite o trabalho original conforme abaixo:
-
-```bibtex
-@inproceedings{jin2019pubmedqa,
-  title={PubMedQA: A Dataset for Biomedical Research Question Answering},
-  author={Jin, Qiao and Dhingra, Bhuwan and Liu, Zhengping and Cohen, William and Lu, Xinghua},
-  booktitle={Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
-  pages={2567--2577},
-  year={2019}
-}
-```
-
-> Jin, Q., Dhingra, B., Liu, Z., Cohen, W., & Lu, X. (2019). PubMedQA: A Dataset for Biomedical Research Question Answering. *Proceedings of EMNLP-IJCNLP 2019*, pp. 2567–2577.
 
 ### `preprocessed/train_data.json`
 
@@ -142,6 +114,31 @@ Os registros foram gerados por Inteligência Artificial seguindo os critérios a
 - **Proibido** o uso comercial sem autorização expressa.
 - **Obrigatório** citar este repositório em trabalhos acadêmicos que utilizem estes dados.
 - **Obrigatório** manter os avisos de validação humana em qualquer derivação do sistema.
+
+---
+
+## Dataset Original (não incluído no repositório)
+
+O fine-tuning foi realizado com o subconjunto **PQA-A** do dataset **PubMedQA** — 211.269 pares de perguntas e respostas biomédicas gerados artificialmente a partir de abstracts do PubMed, originalmente em inglês.
+
+O arquivo `ori_pqaa.json` (509 MB) não está incluído neste repositório por exceder o limite de tamanho do GitHub. Para reproduzir o preprocessamento, obtenha o arquivo diretamente na fonte oficial:
+
+- **Fonte**: [pubmedqa.github.io](https://pubmedqa.github.io/)
+- **Repositório oficial**: [github.com/pubmedqa/pubmedqa](https://github.com/pubmedqa/pubmedqa)
+- **Formato**: JSON com campos `QUESTION`, `LONG_ANSWER` e `CONTEXTS` por registro
+- **Idioma original**: Inglês
+
+#### Citação
+
+```bibtex
+@inproceedings{jin2019pubmedqa,
+  title={PubMedQA: A Dataset for Biomedical Research Question Answering},
+  author={Jin, Qiao and Dhingra, Bhuwan and Liu, Zhengping and Cohen, William and Lu, Xinghua},
+  booktitle={Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
+  pages={2567--2577},
+  year={2019}
+}
+```
 
 ---
 

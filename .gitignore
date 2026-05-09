@@ -35,7 +35,7 @@ logs/
 *.log
 
 # Dados sensíveis / brutos
-ori_pqaa_reduce.json
+data/raw/
 train_data_reduce.json
 dataset_summary.json
 
