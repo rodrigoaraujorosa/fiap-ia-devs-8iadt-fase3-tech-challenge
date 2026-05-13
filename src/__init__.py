@@ -1,1 +1,0 @@
-# Assistente Virtual Médico Hospitalar
