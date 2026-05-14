@@ -188,6 +188,10 @@ Pipeline completo e autocontido. Passos:
 7. Executa consultas de teste (paciente específico, genérica, solicitação de prescrição)
 8. Sobe interface **Gradio** com URL pública válida por 72 h
 
+#### Visualização do Grafo LangGraph do Assistente
+
+![Fluxo de decisão LangGraph](images/decision_flow.png)
+
 #### Configurar token HuggingFace no Colab
 
 O notebook carrega o modelo base diretamente do Hub, o que requer autenticação:
