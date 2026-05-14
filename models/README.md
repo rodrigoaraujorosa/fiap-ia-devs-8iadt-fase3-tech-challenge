@@ -17,6 +17,10 @@ pipeline_tag: text-generation
 
 # mistral-7b-assistente-hospitalar-v1
 
+🤗 **Modelo disponível no Hugging Face:** [rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1](https://huggingface.co/rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1)
+
+---
+
 ## Descrição
 
 Adaptador LoRA fine-tuned sobre o modelo base **Mistral-7B-Instruct-v0.2** para o domínio de assistência médica hospitalar em **português brasileiro**.
