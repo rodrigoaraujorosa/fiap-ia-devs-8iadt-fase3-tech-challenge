@@ -1,6 +1,9 @@
 # Kiro
 .Kiro/
 
+# Claude
+.claude/
+
 # Ambiente virtual
 .venv/
 venv/
