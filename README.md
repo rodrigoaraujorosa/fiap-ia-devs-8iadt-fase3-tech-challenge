@@ -1,8 +1,8 @@
 # Assistente Virtual Médico Hospitalar
 
-Sistema de inteligência artificial para auxílio a médicos em condutas clínicas, desenvolvido como **Tech Challenge — Fase 3** do curso de Inteligência Artificial para DEVs (8IADT).
+Sistema de inteligência artificial para auxílio a médicos em condutas clínicas, desenvolvido como **Tech Challenge — Fase 3** do curso de Inteligência Artificial para DEVs (**8IADT — Grupo 49**).
 
-O sistema combina um modelo de linguagem fine-tunado em dados médicos em português brasileiro com um pipeline de recuperação aumentada por geração (RAG) sobre prontuários de pacientes, orquestrado por um fluxo de decisão LangGraph.
+O sistema combina um modelo de linguagem fine-tunado em dados médicos em português brasileiro com um pipeline de recuperação aumentada por geração (RAG) sobre prontuários de pacientes, orquestrado por um grafo de decisão LangGraph com interface Gradio.
 
 > ⚠️ **Uso exclusivamente acadêmico.** Este sistema não deve ser utilizado para diagnóstico, prescrição ou qualquer conduta clínica em pacientes reais.
 
@@ -10,69 +10,87 @@ O sistema combina um modelo de linguagem fine-tunado em dados médicos em portug
 
 ## Arquitetura
 
+O fluxo de uma consulta é modelado como um **grafo de estados LangGraph** com 9 nós e arestas condicionais explícitas:
+
 ```
-Consulta do médico (PT-BR)
-        │
-        ▼
-┌─────────────────────────────────────────────────────┐
-│              Fluxo LangGraph (src/graph/)            │
-│                                                     │
-│  Receber → RAG (FAISS) → Verificar Exames           │
-│                │                                    │
-│         Pendentes/Alterados?                        │
-│          Sim ↓        Não ↓                         │
-│       Gerar Alerta → Gerar Resposta (LLM)           │
-│                          ↓                         │
-│                   Formatar Resposta                 │
-└─────────────────────────────────────────────────────┘
-        │
-        ▼
-Resposta + Fontes + Alertas Clínicos
+START
+  │
+  ▼
+[detectar_prescricao]
+  │
+  ├─(prescrição)─────────────────────────► [recusar_prescricao]
+  │                                                  │
+  └─(ok)                                             │
+       ▼                                             │
+[identificar_paciente]                               │
+  │                                                  │
+  ├─(encontrado)──► [rag_paciente]                   │
+  │                      │                           │
+  │               [buscar_alertas]                   │
+  │                      │                           │
+  └─(genérico)──────► [rag_generico]                 │
+                          │                          │
+                          ▼                          │
+                    [invocar_llm]                    │
+                          │                          │
+                          ▼                          │
+                  [formatar_resposta] ◄──────────────┘
+                          │
+                   [registrar_log]
+                          │
+                         END
 ```
+
+**Nós do grafo:**
+
+| Nó | Responsabilidade |
+|---|---|
+| `detectar_prescricao` | Verifica se a consulta solicita prescrição médica |
+| `recusar_prescricao` | Retorna recusa imediata sem acionar a LLM |
+| `identificar_paciente` | Fuzzy-match do nome do paciente na query |
+| `rag_paciente` | RAG filtrado por `patient_id` — recupera chunks do prontuário no ChromaDB |
+| `buscar_alertas` | Exames pendentes/alterados via metadados do ChromaDB |
+| `rag_generico` | RAG sem filtro para consultas clínicas genéricas |
+| `invocar_llm` | Monta prompt Mistral Instruct e chama o modelo fine-tunado |
+| `formatar_resposta` | Monta `MedicalResponse` estruturado com fontes e alertas |
+| `registrar_log` | Persiste a interação no audit log (JSON Lines, Google Drive) |
 
 **Componentes principais:**
 
 | Componente | Tecnologia |
 |---|---|
-| Modelo LLM | Mistral-7B-Instruct-v0.2 + adaptador LoRA (QLoRA 4-bit) |
-| Fine-tuning | PEFT + TRL SFTTrainer — executado no Google Colab |
-| Vector Store (RAG) | FAISS in-memory |
-| Embeddings | `paraphrase-multilingual-MiniLM-L12-v2` |
+| Modelo LLM | `mistralai/Mistral-7B-Instruct-v0.2` + adaptador LoRA (QLoRA 4-bit) |
+| Fine-tuning | PEFT + TRL SFTTrainer — Google Colab GPU L4 (17 h) |
+| Vector Store (RAG) | ChromaDB persistido no Google Drive |
+| Embeddings | `paraphrase-multilingual-MiniLM-L12-v2` (sentence-transformers) |
 | Orquestração | LangChain + LangGraph |
-| Prontuários | JSON local (20 registros fictícios) |
-| Logging | Python `TimedRotatingFileHandler` — rotação diária, 30 dias. No Colab, salvo em `MyDrive/assistente-medico/logs/` |
+| Prontuários | `data/prontuarios.json` — 20 registros fictícios em PT-BR |
+| Interface | Gradio — URL pública gerada no Colab, válida por 72 h |
+| Logging de auditoria | JSON Lines com timestamp ISO 8601, rotação diária, 30 dias |
 
 ---
 
 ## Estrutura do Projeto
 
+Apenas os arquivos e pastas versionados no repositório:
+
 ```
 ├── data/
-│   ├── preprocessed/               # Dados traduzidos e formatados para treino
-│   ├── medical_dict.json           # Dicionário de termos médicos EN→PT-BR
+│   ├── preprocessed/
+│   │   └── train_data.json         # 211.269 exemplos médicos PT-BR (formato Alpaca)
+│   ├── medical_dict.json           # 131 termos médicos EN→PT-BR
 │   ├── prontuarios.json            # Base de prontuários fictícios (20 pacientes)
 │   └── README.md
-├── docs/                           # Relatório técnico e comparativos de inferência
-├── images/                         # Diagramas do fluxo de decisão
-├── logs/
-│   └── audit.log                   # Log de auditoria (JSON Lines, rotação diária)
+├── docs/
+│   └── comparativo_inferencia_mistral.xlsx   # Comparativo de 3 configurações de inferência
+├── images/
+│   └── decision_flow.png           # Diagrama do fluxo de decisão LangGraph
 ├── models/
-│   └── README.md                   # Documentação do modelo no HuggingFace Hub
+│   └── README.md                   # Model card — publicado no HuggingFace Hub
 ├── notebooks/
 │   ├── 01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb
 │   ├── 02.Fine-Tuning_TC_Fase3_8IADT.ipynb
-│   ├── 03.DemoGradio_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb
-│   └── 04.Pipeline_RAG_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb
-├── src/
-│   ├── database/                   # Gerenciamento de prontuários e índice FAISS
-│   ├── graph/                      # Fluxo de decisão LangGraph
-│   ├── pipeline/                   # Pipeline RAG LangChain
-│   └── utils/                      # Logger, modelos de dados, exceções
-├── tests/
-│   ├── integration/
-│   ├── property/
-│   ├── smoke/
-│   └── unit/
+│   └── 03.LangGraph_RAG_Pipeline_TC_Fase3_8IADT.ipynb
 ├── LICENSE
 ├── requirements.txt
 └── README.md
@@ -84,12 +102,14 @@ Resposta + Fontes + Alertas Clínicos
 
 - Python 3.10+
 - Git
+- Conta no [Google Colab](https://colab.research.google.com) com acesso a GPU
+- Conta no [HuggingFace](https://huggingface.co) com token de acesso (tipo *Read*)
 
-Para execução do pipeline completo com o modelo fine-tunado, é necessária uma GPU com pelo menos 15 GB de VRAM (ex.: NVIDIA T4 ou L4 no Google Colab).
+O fine-tuning exige GPU L4 (22 GB VRAM). O pipeline RAG e a inferência rodam em GPU T4 (15 GB VRAM).
 
 ---
 
-## Instalação
+## Instalação local (dependências)
 
 ```bash
 # 1. Clonar o repositório
@@ -109,38 +129,79 @@ pip install -r requirements.txt
 
 ## Notebooks
 
-O projeto possui quatro notebooks, cada um com uma responsabilidade distinta:
+O projeto possui três notebooks executados no Google Colab, cada um com uma responsabilidade distinta:
 
-| Notebook | Descrição | Ambiente |
-|---|---|---|
-| `01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb` | Preprocessamento, tradução EN→PT-BR e curadoria do dataset PubMedQA | Google Colab (GPU T4) |
-| `02.Fine-Tuning_TC_Fase3_8IADT.ipynb` | Fine-tuning do Mistral-7B com QLoRA sobre os dados preprocessados | Google Colab (GPU L4) |
-| `03.DemoGradio_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb` | Interface Gradio para consultas diretas ao modelo fine-tunado (sem RAG) | Google Colab (GPU T4/L4) |
-| `04.Pipeline_RAG_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb` | Pipeline completo: modelo + RAG + prontuários + alertas + interface Gradio. Logs de auditoria salvos no Google Drive | Google Colab (GPU T4/L4) |
+### Notebook 01 — Preprocessamento do Dataset
 
-### Executar o pipeline RAG no Colab
+**`01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb`** | Google Colab GPU T4 | ~12 h 10 min
 
-#### Pré-requisito: conta e token no HuggingFace
+Processa o subconjunto PQA-A do dataset **PubMedQA** (211.269 pares QA biomédicos em inglês):
 
-A seção 6 do notebook carrega o modelo `mistralai/Mistral-7B-Instruct-v0.2` diretamente do HuggingFace Hub, o que requer autenticação.
+1. Carrega `ori_pqaa.json` do Google Drive
+2. Extrai os campos `QUESTION` e `LONG_ANSWER`
+3. Traduz EN→PT-BR com o modelo `Helsinki-NLP/opus-mt-tc-big-en-pt`
+4. Aplica pós-processamento com `medical_dict.json` (131 termos clínicos)
+5. Formata no padrão **Alpaca** (`instruction` / `input` / `output`)
+6. Salva o resultado em `preprocessed/train_data.json`
 
-1. Crie uma conta em [huggingface.co](https://huggingface.co) (gratuita)
-2. Gere um token de acesso em **Settings → Access Tokens → New token** (tipo: *Read*)
-3. No Google Colab, adicione o token como secret:
-   - Clique no ícone 🔑 **Secrets** no painel esquerdo
-   - Clique em **+ Add new secret**
-   - Nome: `HF_TOKEN` — Valor: seu token gerado
-   - Ative a opção **Notebook access**
+> O arquivo original `ori_pqaa.json` (509 MB) não está no repositório. Obtê-lo em [pubmedqa.github.io](https://pubmedqa.github.io/).
+
+---
+
+### Notebook 02 — Fine-Tuning
+
+**`02.Fine-Tuning_TC_Fase3_8IADT.ipynb`** | Google Colab GPU L4 (22 GB VRAM) | ~17 h
+
+Fine-tuning do **Mistral-7B-Instruct-v0.2** com QLoRA sobre os dados preprocessados:
+
+| Parâmetro | Valor |
+|---|---|
+| Técnica | QLoRA — 4-bit NF4 + double quantization |
+| LoRA rank (r) | 64 |
+| LoRA alpha | 16 |
+| Target modules | q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj |
+| Batch efetivo | 8 (batch=1 + gradient_accumulation=8) |
+| Max sequence length | 256 tokens |
+| Optimizer | paged_adamw_8bit |
+| Learning rate | 2e-4 |
+| Épocas | 1 |
+| Formato de prompt | Mistral Instruct `[INST] ... [/INST]` |
+
+Ao final do treinamento, o adaptador LoRA é salvo no Google Drive e pode ser carregado em uma sessão limpa para inferência (evitando OOM por duplo carregamento do modelo base).
+
+---
+
+### Notebook 03 — Pipeline RAG LangGraph
+
+**`03.LangGraph_RAG_Pipeline_TC_Fase3_8IADT.ipynb`** | Google Colab GPU T4/L4
+
+Pipeline completo e autocontido. Passos:
+
+1. Instala dependências (`langchain`, `langgraph`, `chromadb`, `gradio`, etc.)
+2. Monta Google Drive — persiste ChromaDB e logs de auditoria entre sessões
+3. Carrega prontuários (`prontuarios.json`) e indexa no **ChromaDB**
+4. Carrega o modelo fine-tunado + adaptador LoRA em 4-bit
+5. Define o `GraphState` e os 9 nós do grafo LangGraph
+6. Compila e visualiza o grafo
+7. Executa consultas de teste (paciente específico, genérica, solicitação de prescrição)
+8. Sobe interface **Gradio** com URL pública válida por 72 h
+
+#### Configurar token HuggingFace no Colab
+
+O notebook carrega o modelo base diretamente do Hub, o que requer autenticação:
+
+1. Gere um token em **huggingface.co → Settings → Access Tokens → New token** (tipo: *Read*)
+2. No Colab, clique no ícone **Secrets** (🔑) no painel esquerdo
+3. Adicione: Nome `HF_TOKEN` — Valor: seu token — ative **Notebook access**
 
 #### Passos de execução
 
-1. Abra o notebook `04.Pipeline_RAG_Assistente_Hospitalar_TC_Fase3_8IADT.ipynb` no Google Colab
-2. Selecione uma GPU em **Ambiente de execução → Alterar tipo de ambiente de execução → T4 GPU**
-3. Execute a **seção 3** (Instalar Dependências)
-4. **Reinicie a sessão**: Ambiente de execução → Reiniciar sessão
-5. Na célula da **seção 4**, substitua `REPO_URL` pela URL deste repositório
-6. Execute as demais células em ordem — o Google Drive será montado automaticamente na seção 2 para persistir os logs de auditoria entre sessões
-7. A interface Gradio gerará uma URL pública válida por 72 horas
+1. Abra o notebook no Google Colab
+2. Selecione **Ambiente de execução → Alterar tipo → T4 GPU**
+3. Execute a célula de instalação de dependências
+4. **Reinicie a sessão** (Ambiente de execução → Reiniciar sessão)
+5. Execute as demais células em ordem
+6. A URL pública do Gradio aparecerá na saída da última célula
 
 ---
 
@@ -156,27 +217,27 @@ O adaptador LoRA está publicado no HuggingFace Hub:
 | Técnica | QLoRA (4-bit NF4 + double quantization) |
 | LoRA rank | 64 |
 | Dataset | 211.269 exemplos médicos em PT-BR |
-| Melhor configuração de inferência | `max_new_tokens=1024, temp=0.6, top_p=0.85, rep_penalty=1.1` → **4.0/5 (80%)** |
+| Infraestrutura | GPU L4 (22 GB VRAM) — Google Colab |
+| Tempo de treinamento | ~17 horas |
 
----
+**Comparativo de configurações de inferência** (5 perguntas clínicas avaliadas):
 
-## Executar os Testes
-
-```bash
-source .venv/Scripts/activate
-pytest tests/ -v
-```
-
-Os testes cobrem: banco de dados de prontuários, logger de auditoria, pipeline RAG e propriedades de corretude.
+| Configuração | Avaliação |
+|---|---|
+| `max_new=512, temp=0.7, top_p=0.9, rep=1.1` | ⭐⭐⭐☆☆ 3.2/5 (64%) |
+| `max_new=1024, temp=0.4, top_p=0.9, rep=1.15` | ⭐⭐☆☆☆ 2.8/5 (56%) |
+| **`max_new=1024, temp=0.6, top_p=0.85, rep=1.1`** | **⭐⭐⭐⭐☆ 4.0/5 (80%) ← recomendado** |
 
 ---
 
 ## Funcionalidades de Segurança
 
-- **Recusa de prescrições**: consultas que solicitam prescrição médica direta são recusadas antes de invocar a LLM
+- **Recusa de prescrições**: consultas que solicitam prescrição médica são recusadas pelo nó `recusar_prescricao` antes de acionar a LLM
+- **Identificação fuzzy de paciente**: o nó `identificar_paciente` faz correspondência aproximada do nome para evitar falsos negativos por variação ortográfica
+- **Fallback para paciente inexistente**: quando nenhum prontuário é encontrado, o pipeline usa RAG genérico e a resposta informa ausência de dados do paciente
+- **Alertas clínicos automáticos**: o nó `buscar_alertas` verifica exames pendentes e alterados via metadados do ChromaDB e os inclui na resposta estruturada
 - **Aviso de validação humana**: toda resposta com sugestão clínica inclui aviso obrigatório de validação por profissional habilitado
-- **Fallback para paciente inexistente**: quando nenhum prontuário é encontrado, a resposta informa explicitamente a ausência de dados
-- **Auditoria completa**: todas as interações, transições de grafo e erros são registrados em `logs/audit.log` com timestamp ISO 8601
+- **Auditoria completa**: o nó `registrar_log` persiste todas as interações em JSON Lines com timestamp ISO 8601 no Google Drive
 
 ---
 
