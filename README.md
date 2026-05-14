@@ -181,7 +181,7 @@ Pipeline completo e autocontido. Passos:
 
 1. Instala dependências (`langchain`, `langgraph`, `chromadb`, `gradio`, etc.)
 2. Monta Google Drive — persiste ChromaDB e logs de auditoria entre sessões
-3. Carrega prontuários (`prontuarios.json`) e indexa no **ChromaDB**
+3. Carrega prontuários (`prontuarios.json`) e indexa no **ChromaDB** — veja detalhes sobre a estrutura e como os dados de prontuário foram gerados em [README da pasta data](data/README.md)
 4. Carrega o modelo fine-tunado + adaptador LoRA em 4-bit
 5. Define o `GraphState` e os 9 nós do grafo LangGraph
 6. Compila e visualiza o grafo
