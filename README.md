@@ -146,6 +146,8 @@ Processa o subconjunto PQA-A do dataset **PubMedQA** (211.269 pares QA biomédic
 
 > O arquivo original `ori_pqaa.json` (509 MB) não está no repositório. Obtê-lo em [pubmedqa.github.io](https://pubmedqa.github.io/).
 
+Para detalhes sobre o formato dos arquivos de dados, o dicionário de termos médicos e os prontuários fictícios, consulte o [README da pasta data](data/README.md).
+
 ---
 
 ### Notebook 02 — Fine-Tuning
