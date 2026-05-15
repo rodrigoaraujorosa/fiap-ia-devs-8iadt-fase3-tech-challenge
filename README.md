@@ -154,22 +154,57 @@ Para detalhes sobre o formato dos arquivos de dados, o dicionário de termos mé
 
 **`02.Fine-Tuning_TC_Fase3_8IADT.ipynb`** | Google Colab GPU L4 (22 GB VRAM) | ~17 h
 
-Fine-tuning do **Mistral-7B-Instruct-v0.2** com QLoRA sobre os dados preprocessados:
+Fine-tuning do **Mistral-7B-Instruct-v0.2** com QLoRA sobre os dados preprocessados. O notebook está organizado em 8 seções:
+
+1. Instalação de dependências e configuração inicial
+2. Diagnóstico de memória (utilitário VRAM)
+3. Configuração das variáveis principais
+4. Carregamento e preparação do dataset
+5. Carregamento do modelo e configuração QLoRA
+6. Treinamento
+7. Inferência e teste do modelo *(sessão separada)*
+8. Publicação do modelo no HuggingFace
+
+#### Configuração de treinamento
 
 | Parâmetro | Valor |
 |---|---|
 | Técnica | QLoRA — 4-bit NF4 + double quantization |
 | LoRA rank (r) | 64 |
 | LoRA alpha | 16 |
+| LoRA dropout | 0.05 |
 | Target modules | q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj |
 | Batch efetivo | 8 (batch=1 + gradient_accumulation=8) |
-| Max sequence length | 256 tokens |
+| Max sequence length | 256 tokens (p95 do dataset = 211 tokens) |
 | Optimizer | paged_adamw_8bit |
 | Learning rate | 2e-4 |
+| Weight decay | 0.001 |
+| LR scheduler | constant |
+| Max grad norm | 0.3 |
+| Warmup steps | 6.338 (3% dos steps totais) |
+| Precisão | bf16 |
 | Épocas | 1 |
-| Formato de prompt | Mistral Instruct `[INST] ... [/INST]` |
+| Formato de prompt | Mistral Instruct `<s>[INST] ... [/INST] ... </s>` |
 
-Ao final do treinamento, o adaptador LoRA é salvo no Google Drive e pode ser carregado em uma sessão limpa para inferência (evitando OOM por duplo carregamento do modelo base).
+#### Resultados do treinamento
+
+| Métrica | Valor |
+|---|---|
+| Steps totais | 26.409 |
+| Loss final | 1.3953 |
+| VRAM antes do treino | 4.15 GB alocado / 4.68 GB reservado |
+| VRAM após o treino | 4.80 GB alocado / 11.72 GB reservado |
+| Tempo total | ~17 horas |
+
+#### Inferência em sessão separada
+
+Após o treinamento, a inferência é executada em uma **sessão limpa do Colab** (Runtime → Restart runtime). Isso é necessário porque o modelo + optimizer + ativações ainda ocupam a VRAM após o treino — carregar o modelo base novamente causaria um segundo pico de ~14 GB, superando os 22 GB da L4.
+
+Na sessão de inferência, o modelo base é carregado em 4-bit e o adaptador LoRA é aplicado sem merge (`PeftModel.from_pretrained`), mantendo o uso de VRAM em ~5 GB.
+
+#### Publicação no HuggingFace
+
+O adaptador LoRA é publicado diretamente do Colab via `HfApi` para o repositório **[rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1](https://huggingface.co/rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1)**.
 
 ---
 
