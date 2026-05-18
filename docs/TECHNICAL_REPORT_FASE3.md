@@ -38,10 +38,12 @@ Desenvolver um assistente virtual que:
 | Este Relatório | `docs/TECHNICAL_REPORT_FASE3.md` |
 | Repositório | [github.com/rodrigoaraujorosa/fiap-ia-devs-8iadt-fase3-tech-challenge](https://github.com/rodrigoaraujorosa/fiap-ia-devs-8iadt-fase3-tech-challenge) |
 | Modelo Fine-Tunado | [huggingface.co/rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1](https://huggingface.co/rodrigoaraujorosa/mistral-7b-assistente-hospitalar-v1) |
+| Assistente Demo | [huggingface.co/spaces/rodrigoaraujorosa/assistente-hospitalar-techchallenge-8iadt](https://huggingface.co/spaces/rodrigoaraujorosa/assistente-hospitalar-techchallenge-8iadt) |
 | Notebook 01 — Preprocessamento | `notebooks/01.PreProcessamento_DataSet_TC_Fase3_8IADT.ipynb` |
 | Notebook 02 — Fine-Tuning | `notebooks/02.Fine-Tuning_TC_Fase3_8IADT.ipynb` |
 | Notebook 03 — Pipeline RAG LangGraph | `notebooks/03.LangGraph_RAG_Pipeline_TC_Fase3_8IADT.ipynb` |
 | Comparativo de Inferência | `docs/comparativo_inferencia_mistral.xlsx` |
+| Vídeo | `link do video` |
 
 ### 1.3 Dataset de Treinamento
 
