@@ -473,8 +473,6 @@ Para cada par (resposta gerada, resposta de referência), o Claude Sonnet 4.6 at
 
 Três configurações de inferência foram testadas para identificar a combinação ideal de parâmetros de geração.
 
-Três configurações de inferência foram testadas para identificar a combinação ideal de parâmetros de geração.
-
 ### 5.2 Configurações de Inferência Testadas
 
 | Config | `max_new_tokens` | `temperature` | `top_p` | `repetition_penalty` |
@@ -823,7 +821,7 @@ A decisão de executar a inferência em uma sessão limpa do Colab (após reinic
 │   ├── prontuarios.json            # Base de prontuários fictícios (20 pacientes)
 │   └── README.md
 ├── docs/
-│   ├── comparativo_inferencia_mistral.xlsx   # Comparativo de 3 configurações de inferência
+│   ├── comparativo_inferencia_mistral.xlsx  # Comparativo 3 configurações de inferência
 │   └── TECHNICAL_REPORT_FASE3.md            # Este relatório
 ├── images/
 │   ├── decision_flow.png           # Diagrama do fluxo de decisão LangGraph
@@ -970,25 +968,13 @@ O sistema representa uma prova de conceito sólida para aplicações de IA em sa
 
 1. Jin, Q., Dhingra, B., Liu, Z., Cohen, W., & Lu, X. (2019). PubMedQA: A Dataset for Biomedical Research Question Answering. *Proceedings of EMNLP-IJCNLP 2019*, pp. 2567–2577.
 
-2. Dettmers, T., Pagnoni, A., Holtzman, A., & Zettlemoyer, L. (2023). QLoRA: Efficient Finetuning of Quantized LLMs. *arXiv:2305.14314*.
+2. LangChain Documentation. [docs.langchain.com](https://docs.langchain.com)
 
-3. Hu, E. J., et al. (2021). LoRA: Low-Rank Adaptation of Large Language Models. *arXiv:2106.09685*.
+3. LangGraph Documentation. [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph)
 
-4. Jiang, A. Q., et al. (2023). Mistral 7B. *arXiv:2310.06825*.
+5. HuggingFace PEFT Documentation. [huggingface.co/docs/peft](https://huggingface.co/docs/peft)
 
-5. Lewis, P., et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. *arXiv:2005.11401*.
-
-6. LangChain Documentation. [docs.langchain.com](https://docs.langchain.com)
-
-7. LangGraph Documentation. [langchain-ai.github.io/langgraph](https://langchain-ai.github.io/langgraph)
-
-8. HuggingFace PEFT Documentation. [huggingface.co/docs/peft](https://huggingface.co/docs/peft)
-
-9. Helsinki-NLP/opus-mt-tc-big-en-pt. [huggingface.co/Helsinki-NLP/opus-mt-tc-big-en-pt](https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-en-pt)
-
----
-
-*Relatório gerado para o projeto acadêmico "Assistente Virtual Médico Hospitalar" — Tech Challenge Fase 3, FIAP AI para DEVs (8IADT), Grupo 49. Uso restrito a fins de pesquisa e ensino.*
+5. Helsinki-NLP/opus-mt-tc-big-en-pt. [huggingface.co/Helsinki-NLP/opus-mt-tc-big-en-pt](https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-en-pt)
 
 ---
 
@@ -1165,8 +1151,3 @@ O preprocessamento foi executado integralmente no Google Colab via notebook, uti
 5. Ao final, copie o arquivo gerado para `data/preprocessed/train_data.json` no repositório local, se necessário.
 
 > **Tempo estimado**: ~12 horas em GPU T4. O notebook suporta retomada automática via checkpoint — se a sessão for interrompida, basta executar novamente que o progresso é preservado.
-
----
-
-*Dados gerados para o projeto acadêmico "Assistente Virtual Médico Hospitalar". Uso restrito a fins de pesquisa e ensino.*
-
