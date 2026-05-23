@@ -43,7 +43,7 @@ Desenvolver um assistente virtual que:
 | Notebook 02 — Fine-Tuning | `notebooks/02.Fine-Tuning_TC_Fase3_8IADT.ipynb` |
 | Notebook 03 — Pipeline RAG LangGraph | `notebooks/03.LangGraph_RAG_Pipeline_TC_Fase3_8IADT.ipynb` |
 | Comparativo de Inferência | `docs/comparativo_inferencia_mistral.xlsx` |
-| Vídeo | `link do video` |
+| Vídeo | [youtu.be/kxlZcXz-ibY](https://youtu.be/kxlZcXz-ibY) |
 
 ### 1.3 Dataset de Treinamento
 
